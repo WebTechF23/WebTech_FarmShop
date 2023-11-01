@@ -1,0 +1,23 @@
+.flex-div {
+    display: flex;
+    flex-flow: row;
+}
+
+footer {
+    background: yellow;
+}
+
+header {
+    background: #b62929;
+    border-radius: 5px;
+}
+
+nav {
+    background: deepskyblue;
+    flex: 0 0 200;
+}
+
+section {
+    background: rgba(35, 95, 150, 0.44);
+    flex: 1 0 auto;
+}
