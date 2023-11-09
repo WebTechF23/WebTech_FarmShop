@@ -13,10 +13,37 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*
 Route::get('/', function () {
-    return view('frontpage');
+    return view('home');
 });
+*/
+
+Route::get('/', function () {
+    return view('home');
+})->name("home");
+
 
 Route::get('/buy', function () {
     return view('buy');
-}) ->name("buypage");
+})->name("buy");
+
+
+Route::get('/userpage', function () {
+    return view('userpage');
+})->name("userpage");
+
+
+Route::get('/login', function () {
+    return view('login');
+})->name("login");
+
+
+Route::get('/basket', function () {
+    return view('basket');
+})->name("basket");
+
+
+Route::get('/welcome', function () {
+    return view('welcome');
+})->name("welcome");

@@ -2,40 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>TesterSite</title>
+    @yield('title')
     <link rel="stylesheet" href="{{asset('css/stylesheet.css')}}">
 
-    <script src="------"></script>
+    <script src="{{asset('js/scriptbuy.js')}}"></script>
 
 </head>
 <body>
-@section('header')
-<header>
-    <h1 id="title">Music Library</h1>
-    @show
+
+
+<header class="header">
+    @yield("header")
 </header>
-<div class="flex-div">
-    @section('navBar')
-    <nav>
-        <h2>Menu Header</h2>
-        @show
-    </nav>
-    @section('section')
-    <section id="maindiv">
 
+<nav>
+    @include('components.navbar')
+</nav>
 
-        @show
-    </section>
-
-</div>
-
-
+<main class="main">
+    @yield("main")
+</main>
 
 <footer>
-    <ul>
-        <li>Contact: 23422324</li>
-
-    </ul>
+    @include('components.footer')
 </footer>
 
 

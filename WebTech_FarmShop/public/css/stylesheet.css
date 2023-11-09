@@ -1,23 +1,59 @@
-.flex-div {
-    display: flex;
-    flex-flow: row;
+:root {
+    --main-color: #006777; /* Temporary */
 }
 
-footer {
-    background: yellow;
-}
 
 header {
-    background: #b62929;
-    border-radius: 5px;
+    display: block;
+
 }
 
-nav {
-    background: deepskyblue;
-    flex: 0 0 200;
+
+.navbar {
+    overflow: hidden;
+    background-color: var(--main-color);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    color: white;
+    text-align: right;
+    display: flex;
+    flex-direction: row;
+    margin: -8px;
+    padding: 5px;
 }
 
-section {
-    background: rgba(35, 95, 150, 0.44);
-    flex: 1 0 auto;
+.navbar a:hover {
+    background: #a0ceff;
+    color: #ffffff;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: right;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+
+.main {
+    margin-top: 42px;
+    background-color: #53a0af;
+    display: flex;
+    width: 100%;
+    padding: 30px;
+}
+
+
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--main-color);
+    color: white;
+    text-align: center;
 }
