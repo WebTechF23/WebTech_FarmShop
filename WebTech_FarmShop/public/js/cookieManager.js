@@ -1,3 +1,10 @@
+
+
+
+
+
+
+/*
 const basket = {
     items: [
         {
@@ -21,3 +28,5 @@ console.log(loadedBasket.items[0].count)
 console.log(localStorage.getItem("hello"))
 
 //Cookie lovgivning, alert() evt., nødvendige
+
+ */
