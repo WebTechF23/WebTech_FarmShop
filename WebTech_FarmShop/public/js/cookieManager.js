@@ -67,6 +67,9 @@ function submitToBasket() {
     console.log(loadedBasket2.items[0].name)
     console.log(loadedBasket2.items[0].count)
 
+
+
+
     /*
     userbasket.roast = document.getElementById("roast-input").value;
     userbasket.steaks = document.getElementById("steaks-input").value;
