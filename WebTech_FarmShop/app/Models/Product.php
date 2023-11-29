@@ -10,13 +10,14 @@ class Product extends Model
 {
     use HasFactory;
 
-    public function pictures(): HasMany
+    public function pictures()
     {
-        return $this->hasMany(Picture::class);
+        return $this->belongsTo(Picture::class,'picture_id');
     }
-    public function stock(): HasMany
+
+    public function stocks(): HasMany
     {
-        return $this->hasMany(Stock::class);
+        return $this->belongsTo(Stock::class,'stock_id');
     }
     public function orders ()
     {
