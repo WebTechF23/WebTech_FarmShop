@@ -47,3 +47,7 @@ Route::get('/basket', function () {
 Route::get('/welcome', function () {
     return view('welcome');
 })->name("welcome");
+
+Route::get('/admin', function () {
+    return view('admin');
+})->name("admin");
