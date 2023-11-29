@@ -19,7 +19,7 @@ return new class extends Migration
             $table->timestamps();
 
         });
-        Schema::create('stock', function (Blueprint $table) {
+        Schema::create('stocks', function (Blueprint $table) {
             $table->id();
             $table->integer('quantity')->nullable();
             $table->timestamps();
@@ -32,12 +32,18 @@ return new class extends Migration
             $table->double('totalPrice');
             $table->timestamps();
 
+
         });
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->double('price');
             $table->string('dateAdded');
+            $table->unsignedBigInteger('picture_id');
+            $table->unsignedBigInteger('stock_id');
+
+            $table->foreign('picture_id')->references('id')->on('pictures')->onDelete('cascade');
+            $table->foreign('stock_id')->references('id')->on('stocks')->onDelete('cascade');
             $table->timestamps();
 
         });

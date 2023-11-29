@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BuyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,9 +25,7 @@ Route::get('/', function () {
 })->name("home");
 
 
-Route::get('/buy', function () {
-    return view('buy');
-})->name("buy");
+Route::get('/buy', [BuyController::class,'getBuyPage'])->name("buy");
 
 
 Route::get('/userpage', function () {
