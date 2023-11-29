@@ -1,49 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>TesterSite</title>
-    <link rel="stylesheet" href="{{asset('css/stylesheet.css')}}">
+@extends('ViewTemplate')
 
-    <script src="{{asset('js/scriptbuy.js')}}"></script>
-
-</head>
-<body>
+@section('script')
+    <script defer src="{{asset('js/cookieManager.js')}}"></script>
+@endsection
 
 
-
-<a href="{{route('buypage')}}">Buy</a>
-
-<header>
-    <h1 id="title">Music Library</h1>
-</header>
-<div class="flex-div">
-    <nav>
-
-        <h2>Menu Header</h2>
-        <ul>
-            <li>Menu 1</li>
-            <li>Menu 2</li>
-            <li>Menu 3</li>
-        </ul>
-    </nav>
-
-    <section id="maindiv">
+@section('title')
+    <title>Basket</title>
+@endsection
 
 
-    </section>
-</div>
+@section('header')
+    <h1>User</h1>
+@endsection
 
 
-<footer>
-    <ul>
-        <li>Contact: 23422324</li>
+@section('main')
+    <div>
+        <h1>Buy Local Organic Products</h1>
 
-    </ul>
-</footer>
+        <div class="buy-main">
 
+            @include("components.product-card", ['productTitle'=>"Roast",'src' => asset('images/roast.png'), 'productInput' => "roast-input", 'productDescription' => "The famous organic roast - you must taste this!"])
+            @include("components.product-card", ['productTitle'=>"Steaks",'src' => asset('images/steaks.png'), 'productInput' => "steaks-input", 'productDescription' => "Best steaks in Europe! Voted by local population!"])
+            @include("components.product-card", ['productTitle'=>"Beef Sausage",'src' => asset('images/beef_sausages.png'), 'productInput' => "beef-sausage-input", 'productDescription' => "The greatest organic meat, made into sausages!"])
+            @include("components.product-card", ['productTitle'=>"Minced Beef",'src' => asset('images/minced_beef.png'), 'productInput' => "minced-beef-input", 'productDescription' => "Fresh, quality ground beef from a local farm, grass fed!"])
+            @include("components.product-card", ['productTitle'=>"Potatoes",'src' => asset('images/potatoes.png'), 'productInput' => "potatoes-input", 'productDescription' => "Organic potatoes, grown right here on the farm!"])
+            @include("components.product-card", ['productTitle'=>"Beef Salami",'src' => asset('images/beef_salami.png'), 'productInput' => "beef-salami-input", 'productDescription' => "Salami, but made from a cow. Both healthier and tastier!"])
 
-</body>
+        </div>
+    </div>
 
-
-</html>
+@endsection
