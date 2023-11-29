@@ -51,3 +51,6 @@ Route::get('/welcome', function () {
 Route::get('/admin', function () {
     return view('admin');
 })->name("admin");
+
+Route::delete('/deleteByName', 'ProductController@destroyByName')->name('DestroyByName');
+
