@@ -1,5 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans:ital,wght@0,300;1,400&family=Roboto+Mono:wght@100&display=swap');
+
 :root {
-    --main-color: #006777; /* Temporary */
+    --main-color: #466730; /* Temporary */
+    --mainbackground-color: #64814f; /* Temporary */
+
+}
+
+html {
+    font-family: "Montserrat", sans-serif;
 }
 
 
@@ -40,12 +48,11 @@ header {
 
 .main {
     margin-top: 42px;
-    background-color: #53a0af;
+    background-color: var(--mainbackground-color);
     display: flex;
     width: 100%;
     padding: 30px;
 }
-
 
 
 .footer {
@@ -53,7 +60,50 @@ header {
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: var(--main-color);
+    --background-color: var(--main-color);
     color: white;
     text-align: center;
+}
+
+
+textarea {
+    resize: none;
+}
+
+.productOneImg {
+    height: 150px;
+    width: 200px;
+    border-radius: 18px;
+}
+
+
+.product-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    /*align-content: center;*/
+}
+
+.buy-main {
+    display: flex;
+    margin: 30px;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 800px;
+}
+
+.product-description {
+    width: 200px;
+}
+
+
+.basket-main {
+    display: flex;
+    margin: 30px;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 400px;
 }

@@ -11,6 +11,7 @@
 @endsection
 
 
+
 @section('main')
     <p>Login content</p>
 @endsection

@@ -13,5 +13,20 @@
 
 
 @section('main')
-    <p>Basket content here!</p>
+    <div>
+        <h1>Confirm Your Purchase</h1>
+        <div class="basket-main">
+
+            <h3>Your order</h3>
+            <p>Roast</p>
+
+            <button>
+
+            </button>
+
+
+
+        </div>
+    </div>
+
 @endsection
