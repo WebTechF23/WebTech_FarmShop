@@ -1,0 +1,6 @@
+<div class="footer">
+
+    <p>Footer here</p>
+
+
+</div>
