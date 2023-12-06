@@ -1,49 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>TesterSite</title>
-    <link rel="stylesheet" href="{{asset('css/stylesheet.css')}}">
+@extends('ViewTemplate')
 
-    <script src="{{asset('js/scriptbuy.js')}}"></script>
-
-</head>
-<body>
+@section('script')
+    <script defer src="{{asset('js/cookieManager.js')}}"></script>
+@endsection
 
 
-
-<a href="{{route('buypage')}}">Buy</a>
-
-<header>
-    <h1 id="title">Music Library</h1>
-</header>
-<div class="flex-div">
-    <nav>
-
-        <h2>Menu Header</h2>
-        <ul>
-            <li>Menu 1</li>
-            <li>Menu 2</li>
-            <li>Menu 3</li>
-        </ul>
-    </nav>
-
-    <section id="maindiv">
+@section('title')
+    <title>Basket</title>
+@endsection
 
 
-    </section>
-</div>
+@section('header')
+    <h1>User</h1>
+@endsection
 
 
-<footer>
-    <ul>
-        <li>Contact: 23422324</li>
+@section('main')
+    <div>
+        <h1>Buy Local Organic Products</h1>
 
-    </ul>
-</footer>
+        <div class="buy-main">
+
+            @foreach($data as $item)
+                @include("components.product-card", ['productTitle'=>$item->name,'src' => asset('images/' . $item->pictures->fileName . $item->pictures->fileExtension), 'productInput' => "roast-input", 'productDescription' => "The famous organic roast - you must taste this!"])
+            @endforeach
 
 
-</body>
+        </div>
+    </div>
 
-
-</html>
+@endsection

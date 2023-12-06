@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string("email")->unique();
             $table->string("phoneNumber")->nullable();
             $table->string("password");
+            $table->boolean('isAdmin')->nullable();
             $table->timestamps();
 
         });
