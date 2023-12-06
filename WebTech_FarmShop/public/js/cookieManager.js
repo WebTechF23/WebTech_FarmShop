@@ -10,12 +10,32 @@ for (let submitBasketBtnElement of submitBasketBtn) {
 //submitBasketBtn.addEventListener("click", submitToBasket);
 //document.getElementById(submitBasketBtn).addEventListener("click", submitToBasket);
 
-var roast = document.getElementById("roast-input").value;
-var steaks = document.getElementById("steaks-input").value;
-var potatoes = document.getElementById("potatoes-input").value;
-var minced = document.getElementById("minced-beef-input").value;
-var beefSausage = document.getElementById("beef-sausage-input").value;
-var beefSalami = document.getElementById("beef-salami-input").value;
+function getInputVals() {
+
+    var valuesArray = [];
+
+    var forms = document.getElementsByClassName('buy-form');
+
+    for (var i = 0; i < forms.length; i++) {
+        // Get the input element within the current form
+        var inputElement = forms[i].querySelector('input');
+
+        valuesArray.push(inputElement.value);
+
+
+    }
+
+    console.log('Collected Values:', valuesArray);
+
+}
+
+
+// var roast = document.getElementById("roast-input").value;
+// var steaks = document.getElementById("steaks-input").value;
+// var potatoes = document.getElementById("potatoes-input").value;
+// var minced = document.getElementById("minced-beef-input").value;
+// var beefSausage = document.getElementById("beef-sausage-input").value;
+// var beefSalami = document.getElementById("beef-salami-input").value;
 
 
 const userbasket = {
@@ -50,22 +70,27 @@ const userbasket = {
 
 };
 
+
+
+
 function submitToBasket() {
 
-    userbasket.items[0].count = document.getElementById("roast-input").value;
-    userbasket.items[1].count = document.getElementById("steaks-input").value;
-    userbasket.items[2].count = document.getElementById("potatoes-input").value;
-    userbasket.items[3].count = document.getElementById("minced-beef-input").value;
-    userbasket.items[4].count = document.getElementById("beef-sausage-input").value;
-    userbasket.items[5].count = document.getElementById("beef-salami-input").value;
+    getInputVals();
 
-    localStorage.setItem("basketJSON2", JSON.stringify(userbasket))
-
-    const loadedBasket2 = JSON.parse(localStorage.getItem("basketJSON2"))
-
-    console.log(loadedBasket2)
-    console.log(loadedBasket2.items[0].name)
-    console.log(loadedBasket2.items[0].count)
+    // userbasket.items[0].count = document.getElementById("roast-input").value;
+    // userbasket.items[1].count = document.getElementById("steaks-input").value;
+    // userbasket.items[2].count = document.getElementById("potatoes-input").value;
+    // userbasket.items[3].count = document.getElementById("minced-beef-input").value;
+    // userbasket.items[4].count = document.getElementById("beef-sausage-input").value;
+    // userbasket.items[5].count = document.getElementById("beef-salami-input").value;
+    //
+    // localStorage.setItem("basketJSON2", JSON.stringify(userbasket))
+    //
+    // const loadedBasket2 = JSON.parse(localStorage.getItem("basketJSON2"))
+    //
+    // console.log(loadedBasket2)
+    // console.log(loadedBasket2.items[0].name)
+    // console.log(loadedBasket2.items[0].count)
 
 
 

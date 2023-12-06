@@ -8,7 +8,7 @@
         <p class="product-description">{{$productDescription}} </p>
 
         <div>
-            <form id="buy-form">
+            <form class="buy-form">
                 <label for="buy">Quantity</label>
                 <input type="number" min="0" value="0" max="12" id={{$productInput}}>
                 <br>

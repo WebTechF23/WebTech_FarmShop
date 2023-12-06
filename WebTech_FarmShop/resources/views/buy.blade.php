@@ -22,7 +22,7 @@
         <div class="buy-main">
 
             @foreach($data as $item)
-                @include("components.product-card", ['productTitle'=>$item->name,'src' => asset('images/' . $item->pictures->fileName . $item->pictures->fileExtension), 'productInput' => "roast-input", 'productDescription' => "The famous organic roast - you must taste this!"])
+                @include("components.product-card", ['productTitle'=>ucfirst(str_replace('_',' ',$item->name)),'src' => asset('images/' . $item->pictures->fileName . $item->pictures->fileExtension), 'productInput' => $item->name . '-input', 'productDescription' => $item->description])
             @endforeach
 
 
