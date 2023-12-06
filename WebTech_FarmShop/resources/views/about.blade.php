@@ -9,32 +9,34 @@
 
     }
     .grid-item{
-        font-size: 1.5vw;
+        font-size: 1.2vw;
         /*align-items: start;*/
         /*margin-top: 50px; */
         border: 3px black solid;
         border-radius: 5px;
-        background-color: grey;
+        background-color: white;
 
     }
 
 
 
     .grid-picture1{
-        background: url({{ asset('pictures/Cow_female_black_white.jpg') }}) 50% 50% no-repeat;
+        background: url({{ asset('images/Cow_female_black_white.jpg') }}) 50% 50% no-repeat;
         background-size: cover;
-        width: 400px;
-        height: 400px;
+        width: 300px;
+        height: 300px;
         align-items: center;
         border: 3px black solid;
         border-radius: 5px;
     }
     .grid-picture2{
-        background: url({{asset('pictures/depositphotos_7315837-stock-photo-storm-is-coming-on-american.jpg')}}) 50% 50% no-repeat;
+        background: url({{asset('images/depositphotos_7315837-stock-photo-storm-is-coming-on-american.jpg')}}) 50% 50% no-repeat;
         background-size: cover;
-        width: 400px;
-        height: 400px;
+        width: 300px;
+        height: 300px;
         align-items: center;
+        border: 3px black solid;
+        border-radius: 5px;
     }
 
     .grid-picture1:hover, .grid-picture2:hover{
