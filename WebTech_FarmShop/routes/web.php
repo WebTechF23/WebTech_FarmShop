@@ -51,3 +51,7 @@ Route::get('/about', function () {
     return view('about');
 })->name("about");
 
+Route::group(['middleware' => 'admin'], function (){
+    return view('admin');
+})->name("admin");
+
