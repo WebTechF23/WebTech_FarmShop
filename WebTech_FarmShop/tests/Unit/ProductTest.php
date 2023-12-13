@@ -27,6 +27,5 @@ class ProductTest extends TestCase
         // Assert that six products are created
         $this->assertCount(6, \App\Models\Product::all());
 
-        // Add more assertions if needed to check specific data in the created records
     }
 }
