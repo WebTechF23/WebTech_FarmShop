@@ -43,13 +43,7 @@ Route::get('/register', function (){
 })->name("register");
 
 Route::post('/register', function (){
-    $user = new User();
-    $user->name = request('name');
-    $user->email = request('email');
-    $user->phoneNumber = request('phoneNumber');
-    $user->password = request('password');
-    $user->save();
-    return redirect('/home');
+    return redirect('/register');
 })->name('register');
 
 

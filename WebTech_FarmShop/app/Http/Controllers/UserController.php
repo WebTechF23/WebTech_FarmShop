@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\User;
+use http\Client\Request;
 
 class UserController extends Controller
 {
@@ -15,4 +16,18 @@ class UserController extends Controller
         return view('userpage', ['user' => $users, 'order' => $orders]);
     }
 
+    public function storeUser(Request $request): RedirectResponse
+    {
+        //$name = $request
+
+    $request->user()->fill([
+        'password' => Hash::make($request-> newPassword)
+    ])->save();
+
+    return redirect('welcome');
+    }
+
+
+
 }
+

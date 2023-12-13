@@ -22,7 +22,7 @@
                 <input type="email" id="email" name="email"><br>
 
                 <label for="phoneNum">Phone number: </label><br>
-                <input type="text" id="phoneNum" name="phoneNum"><br>
+                <input type="tel" id="phoneNum" name="phoneNumber"><br>
 
                 <button type="submit">Submit</button>
 
