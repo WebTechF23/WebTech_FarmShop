@@ -72,6 +72,9 @@ header {
     text-align: center;
     justify-content: space-between;
 }
+.footer_line h3 {
+
+}
 
 
 textarea {
@@ -106,7 +109,6 @@ textarea {
     width: 200px;
 }
 
-
 .basket-main {
     display: flex;
     margin: 30px;
@@ -133,8 +135,6 @@ li, a {
 
 }
 
-
-
 .main {
     margin-top: 42px;
     background-color: #53a0af;
@@ -142,7 +142,6 @@ li, a {
     width: 100%;
     padding: 30px;
 }
-
 
 .container {
     top:50%;
@@ -156,10 +155,10 @@ li, a {
     border-radius: 20px;
     padding: 5px 10px;
 }
+
 .container h1 {
     padding: 15px 0;
 }
-
 
 .btn {
     margin-top: 30px;
