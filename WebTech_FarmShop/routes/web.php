@@ -39,9 +39,9 @@ Route::get('/login', function () {
     return view('login');
 })->name("login");
 
-Route::get('/getRegisterPage', function (){
+Route::get('/registerPage', function (){
     return view('register');
-})->name("getRegisterPage");
+})->name("registerPage");
 
 Route::post('RegisterController/register',[RegisterController::class,'register'] )->name('register');
 
