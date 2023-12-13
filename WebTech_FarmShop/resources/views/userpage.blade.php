@@ -33,7 +33,7 @@
         <input type="email" id="emailID">
 
         <p>{{session()->get('phoneNumber')}}</p>
-        {{session()->}}
+
         @if(session()->has('name'))
             <p>Value from session: {{ session('name') }}</p>
         @else

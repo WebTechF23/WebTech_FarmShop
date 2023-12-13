@@ -107,3 +107,30 @@ textarea {
     flex-wrap: wrap;
     width: 400px;
 }
+
+.forms-grouping{
+    position: relative;
+    left: 800px;
+    background-color: var(--main-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #FFFFFF;
+}
+
+input{
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+.submitBtn{
+    background-color: var(--mainbackground-color);
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submitBtn:hover {
+    background-color: #729459;
+}
