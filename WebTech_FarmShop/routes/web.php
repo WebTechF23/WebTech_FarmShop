@@ -50,8 +50,14 @@ Route::get('/welcome', function () {
 Route::get('/about', function () {
     return view('about');
 })->name("about");
-
+/*
 Route::group(['middleware' => 'admin'], function (){
     return view('admin');
 })->name("admin");
+*/
 
+Route::get('/admin', function (){
+    return view('admin');
+})->name("admin");
+
+#todo fix routing to make it secure
