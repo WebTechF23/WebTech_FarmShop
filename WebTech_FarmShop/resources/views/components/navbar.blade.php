@@ -3,7 +3,7 @@
     <nav class="bar">
         <ul class="nav_links">
             <li><a href="/">Home</a></li>
-            <li><a href="/user">User</a></li>
+            <li><a href="/userpage">User</a></li>
             <li><a href="/buy">Buy</a></li>
             <li><a href="/basket">Basket</a></li>
             <li><a href="/logout">Logout</a></li>
