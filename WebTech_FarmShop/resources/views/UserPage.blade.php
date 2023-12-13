@@ -4,12 +4,9 @@
     <title>User page</title>
 @endsection
 
-
 @section('header')
     <h1>User page</h1>
 @endsection
-
-
 
 @section('main')
     <div>
