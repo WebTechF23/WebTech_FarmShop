@@ -1,11 +1,8 @@
 var submitBasketBtn = document.getElementsByClassName("submitToBasketBtn");
 
-
 let myBasket = {
     items: []
 };
-
-
 // for (let submitBasketBtnElement of submitBasketBtn) {
 //
 //     submitBasketBtnElement.addEventListener("click", submitToBasket);
@@ -17,39 +14,107 @@ let myBasket = {
 
 function addQuantityToObject(productObj) {
 
-    let quantity = 0;
+    console.log("-----------------------");
 
+    //
+    if (myBasket.items.length !== 0) {
 
-    var inputElement = document.getElementById(productObj.name + "-input");
+        myBasket = JSON.parse(localStorage.getItem("loadedBasket"));
 
-// Get the value from the input field
-    var inputValue = parseInt(inputElement.value);
-
-// Now you can use the 'inputValue' variable as needed
-    console.log('Quantity:', inputValue);
-
-    let existingItemIndex
-
-    if (myBasket.items.some(item => item.name === productObj.name)) {
-        // console.log("true contains");
-        // console.log(productObj.name);
-
-
-        console.log(myBasket.items.quantity);
-
-        myBasket.items.quantity += inputValue;
-
-        existingItemIndex = myBasket.items.findIndex(item => item.name === productObj.name);
-
-    } else {
-
-        productObj.quantity = parseInt(inputValue);
-        myBasket.items.push(productObj);
     }
 
 
-    console.log(productObj);
+    let inputElement = document.getElementById(productObj.name + "-input");
+
+    //Value from input field, parsed to int
+    let inputValue = parseInt(inputElement.value);
+
+    //Testing
+    console.log('Quantity:', inputValue);
+
+
+    //Testing if the productObj is in the basket already
+    if (!myBasket.items.some(item => item.name === productObj.name)) {
+
+        myBasket.items.push(productObj);
+    }
+
+    for (let i = 0; i < myBasket.items.length; i++) {
+
+        if (myBasket.items[i].name === productObj.name) {
+
+            if (myBasket.items[i].quantity) {
+                myBasket.items[i].quantity += inputValue;
+
+            } else {
+                myBasket.items[i].quantity = inputValue;
+            }
+        }
+    }
+
+
+    localStorage.setItem("loadedBasket", JSON.stringify(myBasket));
+    let loadedBasket = JSON.parse(localStorage.getItem("loadedBasket"));
+
+
     console.log(myBasket);
+
+    /*
+    if (myBasket.items.some(item => item.name === productObj.name)) {
+            // console.log("true contains");
+            // console.log(productObj.name);
+
+            for (let i = 0; i < myBasket.items.length; i++) {
+
+                indexOf = i;
+                if (myBasket.items[i].name === productObj.name) {
+                    myBasket.items[i].quantity += inputValue;
+
+                }
+
+            }
+
+
+        } else {
+
+            productObj.quantity = parseInt(inputValue);
+            myBasket.items.push(productObj);
+        }
+     */
+
+    /*
+        existingItemIndex = myBasket.items.findIndex(item => item.name === productObj.name);
+        let existingItemIndex
+
+        if (existingItemIndex) {
+            console.log("existingItemIndex: ");
+            console.log(existingItemIndex);
+        }
+
+        if (myBasket.items.some(item => item.name === productObj.name)) {
+            // console.log("true contains");
+            // console.log(productObj.name);
+
+
+
+            console.log(myBasket.items.quantity);
+
+            myBasket.items.quantity += inputValue;
+
+
+
+
+        } else {
+
+            productObj.quantity = parseInt(inputValue);
+            myBasket.items.push(productObj);
+        }
+
+     */
+
+
+    // console.log(productObj);
+    // console.log(myBasket);
 
     // let forms = document.getElementById('buy-form');
     // let inputElement = forms.querySelector('input');
@@ -154,9 +219,12 @@ function submitToBasket(i) {
 
     //window.onbeforeunload = function () {
 
+    /*
     localStorage.setItem("basketJSON2", JSON.stringify(myBasket))
 
     const loadedBasket2 = JSON.parse(localStorage.getItem("basketJSON2"))
+
+     */
 
     //console.log(loadedBasket2)
     // console.log(loadedBasket2.items[0].name)
