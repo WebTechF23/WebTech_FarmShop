@@ -8,3 +8,4 @@ services:
       - MYSQL_DATABASE=laravel
     ports:
     - "3306:3306"
+
