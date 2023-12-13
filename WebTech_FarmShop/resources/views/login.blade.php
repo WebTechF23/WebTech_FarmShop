@@ -13,5 +13,15 @@
 
 
 @section('main')
-    <p>Login content</p>
+    <div class="user_container">
+        <h1>Sign In</h1>
+        <form action="">
+            <input class="btn" type="email" id="email_input" name="email" placeholder="Email" required>
+            <input class="btn" type="password" id="password_input" name="password" placeholder="Password" required>
+            <input class="btn" type="submit" onclick="" value="Log In">
+        </form>
+        <p>Dont have an account?</p>
+        <a id="" href="{{route('registerPage')}}">Create Account</a>
+    </div>
+
 @endsection
