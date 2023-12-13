@@ -1,41 +1,42 @@
-@extends('ViewTemplate')
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
 
 
-@section('title')
-    <title>User</title>
-@endsection
+    <title></title>
+</head>
+<body>
+<div>
+    <ul>
+        <li>My Details</li>
+        <li>My Orders</li>
+        <li></li>
+    </ul>
+</div>
+
+<div class="contentContainer">
+
+    <textarea disabled></textarea>
+    <label for="fnameID">First name</label>
+        <input type="text" id="fnameID">
+
+    <label for="lnameID">Last name</label>
+    <input type="text" id="lnameID">
+
+    <label for="emailID">Email </label>
+    <input type="email" id="emailID">
+
+</div>
 
 
-@section('header')
-    <h1>User</h1>
-@endsection
+
+</body>
 
 
-@section('main')
-    <div>
-        <h2>User Information</h2>
-        {{--<p>User Name: {{$users->name}}</p>
-        <p>Email: {{$users->email}}</p>
-        <p>Phone nr: {{$users->phoneNumber}}</p>--}}
-        <h2>Order History</h2>
-        <table >
-            <thead>
-                <tr>
-                    <th>Order ID</th>
-                    <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Total Price</th>
-                </tr>
-            </thead>
-            <tbody>
-            @foreach($orders as $order)
-                <tr>
-                    <td>{{$order->id}}</td>
-                    <td>{{$order->quantityBought}}</td>
-                    <td>{{$order->totalPrice}}</td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
-    </div>
-@endsection
+
+
+
+
+
+</html>
