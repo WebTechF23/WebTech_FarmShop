@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BuyController;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,20 @@ Route::get('/userpage', function () {
 Route::get('/login', function () {
     return view('login');
 })->name("login");
+
+Route::get('/register', function (){
+    return view('register');
+})->name("register");
+
+Route::post('/register', function (){
+    $user = new User();
+    $user->name = request('name');
+    $user->email = request('email');
+    $user->phoneNumber = request('phoneNumber');
+    $user->password = request('password');
+    $user->save();
+    return redirect('/home');
+})->name('register');
 
 
 Route::get('/basket', function () {
