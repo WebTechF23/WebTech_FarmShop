@@ -41,6 +41,7 @@ return new class extends Migration
             $table->string('name');
             $table->double('price');
             $table->string('dateAdded');
+            $table->string('description');
             $table->unsignedBigInteger('picture_id');
             $table->unsignedBigInteger('stock_id');
 
