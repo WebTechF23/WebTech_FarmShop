@@ -8,9 +8,9 @@
         <hr>
         </nav>
 
-        <form action="/register" method="POST">
+        <form action="{{url('RegisterController/register')}}" method="POST">
+            @csrf
             <div class="forms-grouping">
-                @csrf
 
                 <label for="name">Name: </label><br>
                 <input type="text" id="name" name="name"><br>

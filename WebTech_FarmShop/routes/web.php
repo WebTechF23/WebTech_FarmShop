@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BuyController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 
@@ -38,13 +39,11 @@ Route::get('/login', function () {
     return view('login');
 })->name("login");
 
-Route::get('/register', function (){
+Route::get('/getRegisterPage', function (){
     return view('register');
-})->name("register");
+})->name("getRegisterPage");
 
-Route::post('/register', function (){
-    return redirect('/register');
-})->name('register');
+Route::post('RegisterController/register',[RegisterController::class,'register'] )->name('register');
 
 
 Route::get('/basket', function () {
