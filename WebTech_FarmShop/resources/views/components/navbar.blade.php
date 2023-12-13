@@ -3,19 +3,22 @@
     <nav class="bar">
         <ul class="nav_links">
             <li><a href="{{route('home')}}">Home</a></li>
-{{--            <li><a href="{{route('userpage')}}">User</a></li>--}}
-{{--            <li><a href="{{route('buy')}}">Buy</a></li>--}}
-{{--            <li><a href="{{route('basket')}}">Basket</a></li>--}}
-{{--            <li><a href="{{route('logOut')}}">Logout</a></li>--}}
-            @if(auth()->user())
+            {{--            <li><a href="{{route('userpage')}}">User</a></li>--}}
+            {{--            <li><a href="{{route('buy')}}">Buy</a></li>--}}
+            {{--            <li><a href="{{route('basket')}}">Basket</a></li>--}}
+            {{--            <li><a href="{{route('logOut')}}">Logout</a></li>--}}
+            @if(Auth::check())
+                {{--user is logged in--}}
                 <li><a href="{{route('userpage')}}">User</a></li>
                 <li><a href="{{route('buy')}}">Buy</a></li>
                 <li><a href="{{route('basket')}}">Basket</a></li>
                 <li><a href="{{route('logOut')}}">Logout</a></li>
-                @if(auth()-> user())
+                @if(Auth::user()->isAdmin)
+                    {{--user is also admin, and can access the adminpage--}}
                     <li><a href="/admin">Admin</a></li>
                 @endif
             @else()
+                {{--is not logged in--}}
                 <li><a href="{{route('loginPage')}}">Login</a></li>
             @endif
         </ul>
