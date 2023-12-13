@@ -17,12 +17,12 @@ header {
 
 }
 
-* {
+/** {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
+*/
 .navbar {
     position: fixed;
     top: 0;
@@ -72,11 +72,11 @@ li, a {
 }
 
 .main {
-    margin-top: 42px;
+        margin-top: 42px;
     background-color: #53a0af;
     display: flex;
     width: 100%;
-    padding-top: 30px;
+    padding-top: 40px;
 }
 
 .footer_line {
@@ -196,3 +196,66 @@ textarea {
     position: relative;
 
 }
+
+.left-boxes {
+    display: flex;
+    flex-direction: column;
+}
+
+.box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.boxAdmin{
+    border: 1px solid #ccc;
+    text-align: center;
+
+}
+
+.box-right {
+    background-color: #f0f0f0;
+}
+
+.box-top {
+    background-color: #e0e0e0;
+}
+
+.box-bottom {
+    background-color: #d0d0d0;
+}
+
+.flex-container{
+    display: flex;
+}
+.flex-container > div{
+    margin: 10px;
+    padding: 40px;
+
+}
+
+.inline{
+    display: grid;
+    border: 1px black;
+}
+
+.adminbtn{
+    color: black;
+    font-size: 0.8vw;
+    width: 75px;
+    background-color: white;
+    /*border-radius: 20px;*/
+}
+
+.admininput{
+    margin-top: 30px;
+    color: black;
+    font-size: 0.8vw;
+    width: 120px;
+    background-color: white;
+}
+
+
+
+

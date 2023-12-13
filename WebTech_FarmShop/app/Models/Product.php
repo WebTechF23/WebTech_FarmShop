@@ -15,7 +15,7 @@ class Product extends Model
         return $this->belongsTo(Picture::class,'picture_id');
     }
 
-    public function stocks(): HasMany
+    public function stocks()
     {
         return $this->belongsTo(Stock::class,'stock_id');
     }
