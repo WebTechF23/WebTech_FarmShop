@@ -1,11 +1,25 @@
 <div class="navbar">
-    <h2>Navbar here!</h2>
-
-    <a href="{{route ('home')}}">Home</a>
-    <a href="{{route ('buy')}}">Buy</a>
-    <a href="{{route ('userpage')}}">User</a>
-    <a href="{{route ('basket')}}">Basket</a>
-    <a href="{{route ('login')}}">Login</a>
-
+    <img class="logo" src="{{asset('images/FarmShop-logos_white.png')}}" alt="logo">
+    <nav class="bar">
+        <ul class="nav_links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/user">User</a></li>
+            <li><a href="/buy">Buy</a></li>
+            <li><a href="/basket">Basket</a></li>
+            <li><a href="/logout"></a>Logout</li>
+            @if(auth()->check())
+{{--                <li><a href="/user">User</a></li>--}}
+{{--                <li><a href="/buy">Buy</a></li>--}}
+{{--                <li><a href="/basket">Basket</a></li>--}}
+                <li><a href="/logout"></a>Logout</li>
+                @if(auth()-> user()->isAdmin())
+                    <li><a href="/admin">Admin</a></li>
+                @endif
+            @else()
+                <li><a href="/login">Login</a></li>
+            @endif
+        </ul>
+    </nav>
 </div>
+
 
