@@ -1,7 +1,11 @@
 <?php
 
 use App\Http\Controllers\BuyController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogOutController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,10 +36,19 @@ Route::get('/userpage', function () {
     return view('userpage');
 })->name("userpage");
 
-
-Route::get('/login', function () {
+Route::get('/loginPage', function () {
     return view('login');
-})->name("login");
+})->name("loginPage");
+
+Route::get('/logOut',[LogOutController::class,'logout'] )->name("logOut");
+
+Route::post('/login',[LoginController::class,'authenticate'] )->name("login");
+
+Route::get('/registerPage', function (){
+    return view('register');
+})->name("registerPage");
+
+Route::post('RegisterController/register',[RegisterController::class,'register'] )->name('register');
 
 
 Route::get('/basket', function () {
