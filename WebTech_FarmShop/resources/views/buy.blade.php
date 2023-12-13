@@ -11,7 +11,6 @@
 
 
 @section('header')
-    <h1>User</h1>
 @endsection
 
 
@@ -22,7 +21,7 @@
         <div class="buy-main">
 
             @foreach($data as $item)
-                @include("components.product-card", ['productTitle'=>ucfirst(str_replace('_',' ',$item->name)),'src' => asset('images/' . $item->pictures->fileName . $item->pictures->fileExtension), 'productInput' => $item->name . '-input', 'productDescription' => $item->description])
+                @include("components.product-card", ['productTitle'=>ucfirst(str_replace('_',' ',$item->name)),'src' => asset('images/' . $item->pictures->fileName . $item->pictures->fileExtension), 'productInput' => $item->name . '-input', 'productDescription' => $item->description,'product'=>$item])
             @endforeach
 
 

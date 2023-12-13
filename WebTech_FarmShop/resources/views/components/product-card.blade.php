@@ -2,7 +2,7 @@
 
     <div class="product-display">
 
-        <h3>{{$productTitle}}</h3>
+        <h3 id="product-title">{{$productTitle}}</h3>
 
         <img class="productOneImg" src="{{$src}}">
         <p class="product-description">{{$productDescription}} </p>
@@ -16,9 +16,9 @@
 
             </form>
 
-            <btn class="submitToBasketBtn btn btn-primary">
+            <button class="submitToBasketBtn btn btn-primary" onclick="submitToBasket({{$product}})" >
                 Add To Basket
-            </btn>
+            </button>
         </div>
 
 
