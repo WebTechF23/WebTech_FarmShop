@@ -16,7 +16,7 @@
                 <input type="text" id="name" name="name"><br>
 
                 <label for="password">Password: </label><br>
-                <input type="text" id="password" name="password"><br>
+                <input type="password" id="password" name="password"><br>
 
                 <label for="email">Email: </label><br>
                 <input type="email" id="email" name="email"><br>
