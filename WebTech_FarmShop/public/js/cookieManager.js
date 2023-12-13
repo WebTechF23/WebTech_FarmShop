@@ -1,86 +1,174 @@
 var submitBasketBtn = document.getElementsByClassName("submitToBasketBtn");
 
 
-for (let submitBasketBtnElement of submitBasketBtn) {
+let myBasket = {
+    items: []
+};
 
-    submitBasketBtnElement.addEventListener("click", submitToBasket);
 
-}
+// for (let submitBasketBtnElement of submitBasketBtn) {
+//
+//     submitBasketBtnElement.addEventListener("click", submitToBasket);
+//
+// }
 
 //submitBasketBtn.addEventListener("click", submitToBasket);
 //document.getElementById(submitBasketBtn).addEventListener("click", submitToBasket);
 
-var roast = document.getElementById("roast-input").value;
-var steaks = document.getElementById("steaks-input").value;
-var potatoes = document.getElementById("potatoes-input").value;
-var minced = document.getElementById("minced-beef-input").value;
-var beefSausage = document.getElementById("beef-sausage-input").value;
-var beefSalami = document.getElementById("beef-salami-input").value;
+function addQuantityToObject(productObj) {
+
+    let quantity = 0;
 
 
-const userbasket = {
+    var inputElement = document.getElementById(productObj.name + "-input");
 
-    items: [
-        {
-            name: "roast",
-            count: 0
-        },
-        {
-            name: "steaks",
-            count: 0
-        },
-        {
-            name: "potatoes",
-            count: 0
-        },
-        {
-            name: "minced",
-            count: 0
-        },
-        {
-            name: "beefSausage",
-            count: 0
-        },
-        {
-            name: "beefSalami",
-            count: 0
-        },
+// Get the value from the input field
+    var inputValue = parseInt(inputElement.value);
 
-    ]
+// Now you can use the 'inputValue' variable as needed
+    console.log('Quantity:', inputValue);
 
-};
+    let existingItemIndex
 
-function submitToBasket() {
-
-    userbasket.items[0].count = document.getElementById("roast-input").value;
-    userbasket.items[1].count = document.getElementById("steaks-input").value;
-    userbasket.items[2].count = document.getElementById("potatoes-input").value;
-    userbasket.items[3].count = document.getElementById("minced-beef-input").value;
-    userbasket.items[4].count = document.getElementById("beef-sausage-input").value;
-    userbasket.items[5].count = document.getElementById("beef-salami-input").value;
-
-    localStorage.setItem("basketJSON2", JSON.stringify(userbasket))
-
-    const loadedBasket2 = JSON.parse(localStorage.getItem("basketJSON2"))
-
-    console.log(loadedBasket2)
-    console.log(loadedBasket2.items[0].name)
-    console.log(loadedBasket2.items[0].count)
+    if (myBasket.items.some(item => item.name === productObj.name)) {
+        // console.log("true contains");
+        // console.log(productObj.name);
 
 
+        console.log(myBasket.items.quantity);
+
+        myBasket.items.quantity += inputValue;
+
+        existingItemIndex = myBasket.items.findIndex(item => item.name === productObj.name);
+
+    } else {
+
+        productObj.quantity = parseInt(inputValue);
+        myBasket.items.push(productObj);
+    }
+
+
+    console.log(productObj);
+    console.log(myBasket);
+
+    // let forms = document.getElementById('buy-form');
+    // let inputElement = forms.querySelector('input');
+
+    // console.log(productObj.name +'-input');
+    //
+    // var form = document.getElementById('buy-form');
+    // var inputElement = form.querySelector(productObj.name +'-input');
+    //
+    // quantity = inputElement.value;
+
+    // let inputElement = document.getElementById('{{ $productInput }}');
+    // let inputElement = document.getElementById("");
+
+
+    // Get the input element by its ID
+    // var inputElement = document.getElementById('roast-input');
 
 
     /*
-    userbasket.roast = document.getElementById("roast-input").value;
-    userbasket.steaks = document.getElementById("steaks-input").value;
-    userbasket.potatoes = document.getElementById("potatoes-input").value;
-    userbasket.minced = document.getElementById("minced-beef-input").value;
-    userbasket.beefSausage = document.getElementById("beef-sausage-input").value;
-    userbasket.beefSalami = document.getElementById("beef-salami-input").value;
+        let forms = document.getElementsByClassName('buy-form');
+        let products = document.getElementsByClassName('product-display');
 
-    // localStorage.setItem("basket", JSON.stringify("tempbasket"));
-    localStorage.setItem("basket", userbasket);
-    localStorage.setItem("basketJSON", JSON.stringify(userbasket));
+        for (var i = 0; i < forms.length; i++) {
+            console.log(forms[i].querySelector('input'));
+            let inputElement = forms[i].querySelector('input');
+
+
+            let titleElement = products[i].querySelector('#product-title');
+            let titleText = titleElement.textContent;
+
+            console.log(inputElement.value);
+
+        }
+
+     */
+
+    /*
+        let form = document.getElementById("buy-form");
+        console.log(form);
+        //let input = form.querySelector('input[type="number"]');
+
+        console.log(input);
+
+     */
+
+    /*
+    x.quantity = quantity;
+
+    console.log("x: ");
+    console.log(x);
+
+     */
+
+
+    // var forms = document.getElementsByClassName('buy-form');
+    // var products = document.getElementsByClassName('product-display');
+    //
+    // for (var i = 0; i < forms.length; i++) {
+    //     console.log(forms[i].querySelector('input'));
+    //     let inputElement = forms[i].querySelector('input');
+    //
+    //
+    //     let titleElement = products[i].querySelector('#product-title');
+    //     let titleText = titleElement.textContent;
+    //
+    //     myBasket.items.push({
+    //         name: inputElement.value,
+    //         count: titleText
+    //     });
+    //
+    //     myBasket.items.at(i).name = inputElement.value;
+    //     myBasket.items.at(i).count = titleText;
+    //
+    //
+    // }
+
+}
+
+
+function submitToBasket(i) {
+    //console.log(i);
+
+    addQuantityToObject(i);
+
+    //console.log(i);
+
+    // myBasket.items.push(i);
+
+    // myBasket.push(2);
+    // myBasket.push(2);
+
+
+    localStorage.setItem("loadedBasket", JSON.stringify(myBasket));
+    let loadedBasket = JSON.parse(localStorage.getItem("loadedBasket"));
+
+    //console.log(loadedBasket);
+
+    // localStorage.setItem("loadedBasket", JSON.stringify("myBasket"));
+    // localStorage.setItem("loadedBasket", myBasket);
+    // localStorage.setItem("basketJSON", JSON.stringify(myBasket));
+
+    //window.onbeforeunload = function () {
+
+    localStorage.setItem("basketJSON2", JSON.stringify(myBasket))
+
+    const loadedBasket2 = JSON.parse(localStorage.getItem("basketJSON2"))
+
+    //console.log(loadedBasket2)
+    // console.log(loadedBasket2.items[0].name)
+
+    // // console.log(loadedBasket2.items[1].name)
+    // console.log(loadedBasket2.items[0].count)
+    // console.log(loadedBasket2.items[1].count)
+    // console.log(loadedBasket2.items[1].name)
+
+
+    /*
+
 
     //console.log(roast);
 
