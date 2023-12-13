@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         User::factory(2)->create();
         Stock::factory(6)->create();
 
-        $arr = ["roast","steaks","beef_sausages","minced_beef","potatoes","beef_salami"];
+        $arr = ["Roast","Steaks","Beef sausages","Minced beef","Potatoes","Beef salami"];
 
         for ($i = 0; $i < count($arr); $i++) {
             $ent = new Picture();
