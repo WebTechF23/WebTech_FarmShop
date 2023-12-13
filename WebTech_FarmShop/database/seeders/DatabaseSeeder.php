@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         Stock::factory(6)->create();
 
         $arr = ["roast","steaks","beef_sausages","minced_beef","potatoes","beef_salami"];
+        $productDescrip = ["The famous organic roast - you must taste this!","Best steaks in Europe! Voted by local population!","The greatest organic meat, made into sausages!","Fresh, quality ground beef from a local farm, grass fed!","Organic potatoes, grown right here on the farm!","Salami, but made from a cow. Both healthier and tastier!"];
 
         for ($i = 0; $i < count($arr); $i++) {
             $ent = new Picture();
@@ -34,6 +35,7 @@ class DatabaseSeeder extends Seeder
             $en->dateAdded = date('Y-m-d H:i:s');
             $en->picture_id = $j+1;
             $en->stock_id = $j+1;
+            $en->description = $productDescrip[$j];
             $en->save();
         }
     }

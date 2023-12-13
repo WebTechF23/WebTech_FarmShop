@@ -34,14 +34,15 @@ Route::get('/userpage', function () {
     return view('userpage');
 })->name("userpage");
 
-
-Route::get('/login', function () {
+Route::get('/loginPage', function () {
     return view('login');
-})->name("login");
+})->name("loginPage");
 
-Route::get('/getRegisterPage', function (){
+Route::post('/login',[\App\Http\Controllers\LoginController::class,'authenticate'] )->name("login");
+
+Route::get('/registerPage', function (){
     return view('register');
-})->name("getRegisterPage");
+})->name("registerPage");
 
 Route::post('RegisterController/register',[RegisterController::class,'register'] )->name('register');
 
