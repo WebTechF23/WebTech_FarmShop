@@ -69,3 +69,6 @@ Route::get('/admin', function (){
 })->name("admin");
 
 #todo fix routing to make it secure
+
+#testing item thingy prob not right
+Route::get('/Stock/{id}', 'ItemController@getItem')->name('get.item');

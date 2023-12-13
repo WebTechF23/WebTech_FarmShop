@@ -76,25 +76,13 @@ li, a {
 }
 
 .main {
-        margin-top: 42px;
-    background-color: #53a0af;
+    margin-top: 42px;
+    background-color: var(--mainbackground-color);
     display: flex;
     width: 100%;
     padding-top: 40px;
 }
 
-.navbar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 5px 10%;
-    background-color: var(--main-color);
-}
 
 .nav_links {
     list-style: none;
@@ -117,8 +105,6 @@ li, a {
 
 .footer_line {
     position: fixed;
-.footer_line {
-    position: fixed;
     display: flex;
     padding: 5px 20px;
     left: 0;
@@ -129,18 +115,7 @@ li, a {
     text-align: center;
     justify-content: space-between;
 }
-.container {
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    position: absolute;
-    text-align: center;
-    width: 350px;
-    height: 250px;
-    background-color: #718096;
-    border-radius: 20px;
-    padding: 5px 10px;
-}
+
 .container h1 {
     padding: 15px 0;
 }
@@ -156,6 +131,7 @@ li, a {
     height: 40px;
     background-color: #1a202c;
     border-radius: 20px;
+}
 .footer_line h3 {
 
 }
@@ -289,16 +265,12 @@ textarea {
 }
 
 .admininput{
-    margin-top: 30px;
+    margin-top: 5px;
     color: black;
     font-size: 0.8vw;
     width: 120px;
     background-color: white;
 }
-
-
-
-
 
 li, a {
     font-family: "Montserrat", sans-serif;
@@ -316,13 +288,6 @@ li, a {
 
 }
 
-.main {
-    margin-top: 42px;
-    background-color: #53a0af;
-    display: flex;
-    width: 100%;
-    padding: 30px;
-}
 
 .container {
     top:50%;
@@ -349,4 +314,8 @@ li, a {
     height: 40px;
     background-color: #1a202c;
     border-radius: 20px;
+}
+
+.mrg-r{
+    margin-right: 10px;
 }
