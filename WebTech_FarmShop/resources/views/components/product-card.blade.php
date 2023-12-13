@@ -15,10 +15,7 @@
                 <br>
 
             </form>
-
-            <btn class="submitToBasketBtn btn btn-primary">
-                Add To Basket
-            </btn>
+            <input type="button" class="btn btn-primary submitToBasketBtn" value="Add to Basket" />
         </div>
 
 
