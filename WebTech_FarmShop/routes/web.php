@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\BuyController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogOutController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
@@ -38,7 +40,9 @@ Route::get('/loginPage', function () {
     return view('login');
 })->name("loginPage");
 
-Route::post('/login',[\App\Http\Controllers\LoginController::class,'authenticate'] )->name("login");
+Route::get('/logOut',[LogOutController::class,'logout'] )->name("logOut");
+
+Route::post('/login',[LoginController::class,'authenticate'] )->name("login");
 
 Route::get('/registerPage', function (){
     return view('register');
