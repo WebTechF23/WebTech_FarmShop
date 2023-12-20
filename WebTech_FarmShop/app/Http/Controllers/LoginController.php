@@ -10,15 +10,16 @@ class LoginController extends Controller
 {
 
     public function authenticate(Request $request): RedirectResponse
-    {
+    {error_log('hello');
     $credentials = $request->validate ([
         'email'=> ['required', 'email'],
         'password' => ['required']
     ]);
 
     if(Auth::attempt($credentials)){
+        $url = route('home');
         $request->session()->regenerate();
-        return redirect()->intended('home');
+        return redirect($url);
     }
     return back()->withErrors([
         'email'=>'The provided email does not match our records',
