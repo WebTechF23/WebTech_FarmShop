@@ -4,6 +4,7 @@ use App\Http\Controllers\BuyController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogOutController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 
@@ -32,9 +33,12 @@ Route::get('/', function () {
 Route::get('/buy', [BuyController::class,'getBuyPage'])->name("buy");
 
 
-Route::get('/userpage', function () {
+/*Route::get('/userpage', function () {
     return view('userpage');
 })->name("userpage");
+*/
+
+Route::get('/userpage', [UserController::class,'userInformation'])->name("userpage");
 
 Route::get('/loginPage', function () {
     return view('login');
