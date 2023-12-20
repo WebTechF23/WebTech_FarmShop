@@ -8,7 +8,6 @@ use Tests\TestCase;
 
 class ProductTest extends TestCase
 {
-    use RefreshDatabase;
 
     /** @test */
     public function it_seeds_users_stocks_pictures_and_products()
