@@ -32,13 +32,12 @@
         <label for="emailID">Email </label>
         <input type="email" id="emailID">
 
-        <p>{{session()->get('phoneNumber')}}</p>
+        @foreach($userdata as $user)
+            @include("components.userInformation", ['name'=>$user->users->name,
+            'email'=>$user->users->email,
+            'phoneNumber'=>$user->users->phoneNumber])
+        @endforeach
 
-        @if(session()->has('name'))
-            <p>Value from session: {{ session('name') }}</p>
-        @else
-            <p>No value found in the session for the specified key.</p>
-        @endif
 
     </div>
 @endsection
