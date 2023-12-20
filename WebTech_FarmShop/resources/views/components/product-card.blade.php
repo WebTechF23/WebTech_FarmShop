@@ -16,7 +16,7 @@
 
             </form>
 
-            <button class="submitToBasketBtn btn btn-primary" onclick="submitToBasket({{$product}})" >
+            <button class="submitToBasketBtn btn btn-primary" onclick="submitToBasket({{$product}})">
                 Add To Basket
             </button>
         </div>

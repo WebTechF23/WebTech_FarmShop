@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BasketController;
 use App\Http\Controllers\BuyController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogOutController;
@@ -30,7 +31,7 @@ Route::get('/', function () {
 
 
 Route::get('/buy', [BuyController::class,'getBuyPage'])->name("buy");
-
+Route::post('/BasketController/finalizePurchase',[BasketController::class,'finalizePurchase'])->name('confirmBuy');
 
 Route::get('/userpage', function () {
     return view('userpage');
@@ -59,3 +60,6 @@ Route::get('/basket', function () {
 Route::get('/welcome', function () {
     return view('welcome');
 })->name("welcome");
+
+
+Route::put('/update-stock/{id}','BasketController@updateQuantity');
