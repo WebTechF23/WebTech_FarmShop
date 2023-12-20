@@ -4,6 +4,7 @@ use App\Http\Controllers\BuyController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,8 @@ Route::get('/', function () {
 
 
 Route::get('/buy', [BuyController::class,'getBuyPage'])->name("buy");
+
+Route::get('/admin', [AdminController::class,'getOrder'])->name("admin");
 
 
 Route::get('/userpage', function () {
@@ -64,9 +67,9 @@ Route::group(['middleware' => 'admin'], function (){
 })->name("admin");
 */
 
-Route::get('/admin', function (){
+/*Route::get('/admin', function (){
     return view('admin');
-})->name("admin");
+})->name("admin");*/
 
 #todo fix routing to make it secure
 

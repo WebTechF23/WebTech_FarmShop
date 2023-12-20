@@ -5,13 +5,14 @@
     --main-color: #466730; /* Temporary */
     --mainbackground-color: #64814f; /* Temporary */
 }
+/*
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
+øh kom lige tilbage og check tf den her gør*/
 html {
     font-family: "Montserrat", sans-serif;
 }
@@ -318,4 +319,19 @@ li, a {
 
 .mrg-r{
     margin-right: 10px;
+}
+
+.scroll-div{
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid black;
+}
+
+.override-idkwtf{
+    height: 95%;
+}
+
+.EditProducts{
+    border: 3px solid black;
+    margin: 2px;
 }
