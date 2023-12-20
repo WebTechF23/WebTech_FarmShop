@@ -11,7 +11,7 @@ function updateBasket() {
     let basketContainer = document.getElementById('basket-main');
 
 
-    basketContainer.innerHTML = " ";
+    // basketContainer.innerHTML = " ";
 
     myBasket.items.forEach(item => {
 
@@ -29,8 +29,9 @@ function updateBasket() {
         inputElement.type = 'number';
         inputElement.min = 1;
         inputElement.value = item.quantity; // Set the value to the item's quantity
-        inputElement.max = 50;
-        inputElement.id = 'someDynamicID'; // Replace with your actual dynamic ID
+        inputElement.max = 100;
+        inputElement.name = item.name;
+        inputElement.id = item.name + 'Input-Id'; // Replace with your actual dynamic ID
 
 
         element.innerHTML = `<h3>${newitemName}</h3>`;
@@ -49,8 +50,6 @@ function updateBasket() {
 
         basketContainer.append(element);
 
-
-
     });
 
 
@@ -59,5 +58,44 @@ function updateBasket() {
 
 function finalizePurchase() {
 
+    console.log("Finalize Purchase: ");
 
+    let storedBasket = localStorage.getItem("loadedBasket");
+    myBasket = JSON.parse(storedBasket);
+
+
+    //Testing
+    // console.log(document.getElementById("steaksInput-Id").value);
+    // let stockId =
+
+
+    var request = new XMLHttpRequest();
+    console.log("hello");
+    request.open('POST',`/purchase?data=${myBasket}`,true);
+
+    request.onload = function (){
+        if (request.status == 200){
+            //lave kode he
+
+        }else {
+            console.log("Error: " + request.statusText)
+        }
+
+    }
+
+    request.send();
+
+    /*$.ajax({
+        type:'POST',
+        url: '/purchase',
+        data: myBasket,
+        dataType:'json',
+        success: function (){
+            console.log(("success"));
+        },
+        error: function (){
+            console.log("Error");
+        }
+    })*/
 }
+

@@ -59,3 +59,6 @@ Route::get('/basket', function () {
 Route::get('/welcome', function () {
     return view('welcome');
 })->name("welcome");
+
+
+Route::put('/update-stock/{id}','BasketController@updateQuantity');

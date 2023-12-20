@@ -19,7 +19,8 @@
             Retrive Basket
         </button>
         <br>
-        <div id="basket-main">
+        <form id="basket-main" >
+            @csrf
 
             {{--            <h3>Your order</h3>--}}
             {{--            <p>Roast: 0</p>--}}
@@ -29,12 +30,13 @@
             {{--            <p>Potatoes: 0</p>--}}
             {{--            <p>Beef Salami: 0</p>--}}
 
-
-        </div>
-        <br>
-        <button id="confirmButton" onclick="finalizePurchase()">
+            <input type="submit" value="Submit">
+        <button id="confirmButton" type="button" onclick="finalizePurchase()">
             Confirm Reservation
         </button>
+
+        </form>
+        <br>
     </div>
 
 @endsection
