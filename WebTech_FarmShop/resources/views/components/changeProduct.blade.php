@@ -8,9 +8,9 @@
         <p>Updated at : {{$updatedAt}}</p>
 
         <h3>Product ordered</h3>
-        @foreach($data[0] as $item)
-            @include("components.showProduct",['productName'=>$item->name,'boughtAmount'=>$item->quantityBought,'priceTotal'=>$item->totalPrice,'productID'=>$item->product_id])
-        @endforeach
+{{--        @foreach($data[0] as $item)--}}
+{{--            @include("components.showProduct",['productName'=>$item->name,'boughtAmount'=>$item->quantityBought,'priceTotal'=>$item->totalPrice,'productID'=>$item->product_id])--}}
+{{--        @endforeach--}}
 
 
         <div>
