@@ -7,9 +7,10 @@
             <th>Phone number</th>
         </tr>
         <tr>
-            <td>{{$name}}</td>
-            <td>{{$email}}</td>
-            <td>{{$phoneNumber}}</td>
+            <td>{{Auth::user()->name}}</td>
+            <td>{{Auth::user()->email}}</td>
+            <td>{{Auth::user()->phoneNumber}}</td>
+            {{Auth::}}
         </tr>
     </table>
 </div>
