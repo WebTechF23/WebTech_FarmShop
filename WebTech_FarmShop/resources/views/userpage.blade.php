@@ -17,9 +17,9 @@
     <div class="contentContainer">
     @foreach($orderdata as $item)
         @include("components.orderHistory",[
-    'boughtAmount'=>$item->quantityBought,
-    'priceTotal'=>$item->totalPrice,
-    'OrderID'=>$item->id])
+            'boughtAmount'=>$item->quantityBought,
+            'priceTotal'=>$item->totalPrice,
+            'OrderID'=>$item->id])
     @endforeach
 @endsection
 
