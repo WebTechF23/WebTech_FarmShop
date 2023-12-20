@@ -19,9 +19,10 @@ class UserController extends Controller
     }
 */
 
-    public function userOrderHistory()
-    {
-    //$orderHist = Order::where()
+    public function userOrderHistory(){
+        $orders = Order::with('users')->with('product')->get();
+        error_log($orders);
+        return view('userpage', ['orderdata'=>$orders]);
     }
 
 }

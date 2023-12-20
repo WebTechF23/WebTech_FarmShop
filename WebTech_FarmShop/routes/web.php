@@ -38,7 +38,7 @@ Route::get('/buy', [BuyController::class,'getBuyPage'])->name("buy");
 })->name("userpage");
 */
 
-Route::get('/userpage', [UserController::class,'userInformation'])->name("userpage");
+Route::get('/userpage', [UserController::class,'userOrderHistory'])->name("userpage");
 
 Route::get('/loginPage', function () {
     return view('login');
