@@ -62,28 +62,7 @@ function finalizePurchase() {
 
     let storedBasket = localStorage.getItem("loadedBasket");
     myBasket = JSON.parse(storedBasket);
-
-
-    //Testing
-    // console.log(document.getElementById("steaksInput-Id").value);
-    // let stockId =
-
-
-    var request = new XMLHttpRequest();
-    console.log("hello");
-    request.open('POST',`/purchase?data=${myBasket}`,true);
-
-    request.onload = function (){
-        if (request.status == 200){
-            //lave kode he
-
-        }else {
-            console.log("Error: " + request.statusText)
-        }
-
-    }
-
-    request.send();
+    console.log(myBasket);
 
     /*$.ajax({
         type:'POST',

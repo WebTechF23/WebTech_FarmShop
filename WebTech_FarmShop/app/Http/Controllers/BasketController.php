@@ -8,13 +8,6 @@ use function MongoDB\BSON\toJSON;
 
 class BasketController extends Controller
 {
-    //
-    public function i(Request $request){
-        $url = route('home');
-        error_log("hello". $request->all());
-        return redirect($url);
-    }
-
     public function updateQuantity2(Request $request, $id) {
 
         //Validate ....
@@ -33,8 +26,8 @@ class BasketController extends Controller
 
     public function finalizePurchase(Request $request){
 
-         $data = $request->input('data');
-         error_log("data: " . $data);
+         $data = $request->all();
+         
 
         $url = route('home');
 

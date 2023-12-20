@@ -31,7 +31,7 @@ Route::get('/', function () {
 
 
 Route::get('/buy', [BuyController::class,'getBuyPage'])->name("buy");
-Route::get('/purchase',[BasketController::class,'i'])->name('confirmBuy');
+Route::post('/BasketController/finalizePurchase',[BasketController::class,'finalizePurchase'])->name('confirmBuy');
 
 Route::get('/userpage', function () {
     return view('userpage');

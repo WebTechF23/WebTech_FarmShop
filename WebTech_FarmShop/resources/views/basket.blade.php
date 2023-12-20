@@ -20,8 +20,8 @@
             Retrive Basket
         </button>
         <br>
-        <form id="basket-main" >
-            @csrf
+        <form id="basket-main" method="POST" action="{{url('BasketController/finalizePurchase')}}" >
+        @csrf
 
             {{--            <h3>Your order</h3>--}}
             {{--            <p>Roast: 0</p>--}}
