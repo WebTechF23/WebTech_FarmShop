@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BasketController;
 use App\Http\Controllers\BuyController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogOutController;
@@ -30,7 +31,7 @@ Route::get('/', function () {
 
 
 Route::get('/buy', [BuyController::class,'getBuyPage'])->name("buy");
-
+Route::get('/purchase',[BasketController::class,'i'])->name('confirmBuy');
 
 Route::get('/userpage', function () {
     return view('userpage');
