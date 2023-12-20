@@ -17,7 +17,6 @@ html {
     font-family: "Montserrat", sans-serif;
 }
 
-
 header {
     display: block;
 }
@@ -147,7 +146,6 @@ textarea {
     width: 200px;
     border-radius: 18px;
 }
-
 
 .product-display {
     display: flex;
@@ -309,12 +307,49 @@ li, a {
 
 .btn {
     margin-top: 30px;
-    color: #e2e8f0;
+    color: #64814f;
     font-size: 20px;
     width: 150px;
     height: 40px;
-    background-color: #1a202c;
     border-radius: 20px;
+    background-color: white;
+    /*border-bottom: 2px;*/
+    /*border-bottom-color: #1a202c;*/
+    /*border-top: 2px;*/
+    /*border-top-color: #1a202c;*/
+
+
+}
+
+.user_container {
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    position: fixed;
+    text-align: center;
+    background-color: #64814f;
+    padding: 50px;
+    border-radius: 20px;
+
+}
+
+.user_container input {
+    display: block;
+    padding: 7px;
+    border-radius: 10px;
+    height: 35px;
+    width: 100%;
+    margin: 10px 0px;
+    border: none;
+}
+
+.user_container h1,p {
+    color: white;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.user_container a {
+    text-decoration: underline;
 }
 
 .mrg-r{
