@@ -3,17 +3,39 @@ console.log("BASKET BUY YEE");
 
 function updateBasket() {
 
-    console.log("---------------");
-
+    // Retrives basket
     let storedBasket = localStorage.getItem("loadedBasket");
     myBasket = JSON.parse(storedBasket);
 
     let basketContainer = document.getElementById('basket-main');
 
 
-    // basketContainer.innerHTML = " ";
+    //basketContainer.innerHTML = " ";
 
+
+    // h3 Header creation
+    let existingHeader = basketContainer.querySelector('h3');
+
+    // Checks, and creates header
+    if (!existingHeader) {
+        let basketHeader = document.createElement('h3');
+        basketHeader.textContent = 'Basket contains';
+        basketContainer.append(basketHeader);
+
+        let lineBreak = document.createElement('br');
+        basketContainer.append(lineBreak);
+        basketContainer.append(lineBreak);
+
+    }
+
+    // Iterates trough items from the localStorage object, and makes corresponding elements
     myBasket.items.forEach(item => {
+
+            // Skip creating the item if it already exists
+        if (document.querySelector(`[name="${item.name}"]`)) {
+            return;
+        }
+
 
         let element = document.createElement('div');
 
@@ -39,14 +61,23 @@ function updateBasket() {
 
 
         let removeButton = document.createElement('button');
-        removeButton.textContent = 'Remove type from basket';
+        removeButton.textContent = 'Remove from basket';
         removeButton.addEventListener('click', function () {
-            // Handle the removal of the corresponding element when the button is clicked
+
+
+            myBasket.items = myBasket.items.filter(basketItem => basketItem.name !== item.name);
+
+            // Saving basket
+            localStorage.setItem("loadedBasket", JSON.stringify(myBasket));
+            let loadedBasket = JSON.parse(localStorage.getItem("loadedBasket"));
+
             basketContainer.removeChild(element);
+
+            createdItemNames = createdItemNames.filter(name => name !== item.name);
+
         });
 
         element.appendChild(removeButton);
-
 
         basketContainer.append(element);
 

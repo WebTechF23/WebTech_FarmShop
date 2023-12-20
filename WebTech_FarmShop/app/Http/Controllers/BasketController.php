@@ -3,35 +3,67 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Product;
+use App\Models\Stock;
 use Illuminate\Http\Request;
 use function MongoDB\BSON\toJSON;
 
 class BasketController extends Controller
 {
-    public function updateQuantity2(Request $request, $id) {
+    public function updateQuantity2(Request $request, $id)
+    {
 
         //Validate ....
         $request->validate([
             'quantity' => 'required|integer|min:0',
         ]);
 
-    $stock = Stock::findOrFail($id);
+        $stock = Stock::findOrFail($id);
 
-    $stock->update([
-        'quantity' => $request->input('quantity'),
-    ]);
+        $stock->update([
+            'quantity' => $request->input('quantity'),
+        ]);
 
     }
 
 
-    public function finalizePurchase(Request $request){
+    public function finalizePurchase(Request $request)
+    {
+        // Data from request
+        $data = $request->all();
 
-         $data = $request->all();
-         
+        foreach ($data as $productName => $quantity) {
 
-        $url = route('home');
+            $product = Product::where('name', $productName)->first();
 
+            if ($product) {
+                // Find or create stock for the product
+                $stock = Stock::firstOrNew(['id' => $product->id]);
+
+                // Check if
+                if ($stock->quantity >= $quantity) {
+                $stock->quantity -= $quantity;
+                $stock->save();
+                // Update the stock quantity if quantity is high enough
+
+                    session()->flash('database_updated', 'Reservation completed successfully!');
+//                    return redirect()->back();
+                } else {
+
+                    session()->flash('insufficient_stock', 'Sorry, insufficient stock');
+                    return redirect()->back();
+                }
+            }
+        }
+
+        // Redirect home
+        $url = route('basket');
         return redirect($url);
+
+
+        //Testing
+        error_log("Got this far..");
+
 
         /*
 
@@ -46,12 +78,13 @@ class BasketController extends Controller
     }
 
 
-
-    public function hello(){
+    public function hello()
+    {
         return 'Hello World';
     }
 
-    public function index(){
+    public function index()
+    {
         return 'Hello World';
     }
 

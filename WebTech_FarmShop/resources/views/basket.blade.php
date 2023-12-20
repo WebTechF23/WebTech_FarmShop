@@ -17,26 +17,31 @@
     <div>
         <h1>Reserve your products here!</h1>
         <button id="updateBasketButton" onclick="updateBasket()">
-            Retrive Basket
+            Fetch Basket
         </button>
-        <br>
-        <form id="basket-main" method="POST" action="{{url('BasketController/finalizePurchase')}}" >
-        @csrf
 
-            {{--            <h3>Your order</h3>--}}
-            {{--            <p>Roast: 0</p>--}}
-            {{--            <p>Steaks: 0</p>--}}
-            {{--            <p>Beef Sausage: 0</p>--}}
-            {{--            <p>Minced Beef: 0</p>--}}
-            {{--            <p>Potatoes: 0</p>--}}
-            {{--            <p>Beef Salami: 0</p>--}}
+        <br>
+        <br>
+        <form id="basket-main" method="POST" action="{{url('BasketController/finalizePurchase')}}">
+            @csrf
 
             <input type="submit" value="Submit">
-        <button id="confirmButton" type="button" onclick="finalizePurchase()">
-            Confirm Reservation
-        </button>
-
+            <br>
+            <br>
         </form>
+        {{--            </button>--}}
+        {{--        <button id="confirmButton" type="button" onclick="finalizePurchase()">--}}
+        {{--            Confirm Reservation--}}
+        @if(session('insufficient_stock'))
+            <h3 class="alert alert-danger">
+                {{ session(('insufficient_stock')) }}
+            </h3>
+        @endif
+        @if(session('database_updated'))
+            <h3 class="alert alert-danger">
+                {{ session(('database_updated')) }}
+            </h3>
+        @endif
         <br>
     </div>
 
