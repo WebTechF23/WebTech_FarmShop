@@ -61,6 +61,9 @@ class DatabaseSeeder extends Seeder
         $order_product->product_id=1;
         $order_product->save();
 
-
+        $order_product = new Order_product();
+        $order_product->order_id = 1;
+        $order_product->product_id=2;
+        $order_product->save();
     }
 }
