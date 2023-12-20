@@ -48,13 +48,36 @@
     <div>
         <h1>Orders</h1>
         <div class="edit-main">
-            @foreach($orderdata as $item)
+            @foreach($data[0] as $item)
                 @include("components.changeProduct",
-                ['orderDate'=>$item->date, 'userName'=>$item->users->name,
-                'userID'=>$item->user_id, 'boughtAmount'=>$item->quantityBought,
+                ['orderDate'=>$item->date,'boughtAmount'=>$item->quantityBought,
                 'priceTotal'=>$item->totalPrice,'createdAt'=>$item->created_at,
-                'updatedAt'=>$item->updated_at, 'OrderID'=>$item->id])
+                'updatedAt'=>$item->updated_at, 'OrderID'=>$item->id,])
+                @foreach($item->product as $item1)
+                    <p>{{$item1}}
+{{--                    @include("components.showProduct",['productName'=>$item1->name,'productID'=>$item1->id,'price'=>$item1->price,'productDescription'=>$item1->description])--}}
+{{----}}
+
+                @endforeach
             @endforeach
+        </div>
+    </div>
+
+    <div>
+        <h1>User information</h1>
+            <div>
+                @foreach($data[1] as $item)
+                    @include("components.listUsers",
+                    ['userName'=>$item->name, 'userID'=>$item->id,
+                    'userEmail'=>$item->email,'userPhoneNumber'=>$item->phoneNumber])
+                @endforeach
+
+            </div>
+    </div>
+    <div>
+        <div>
+
+
         </div>
     </div>
     {{-- uh skift til admincontroller and shasdi+

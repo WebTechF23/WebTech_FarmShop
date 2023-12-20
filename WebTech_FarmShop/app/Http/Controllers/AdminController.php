@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\Product;
+use App\Models\Stock;
 use App\Models\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -20,13 +22,24 @@ class AdminController extends Controller
         return view ('userData',['userData'=>$users]);
     }
 
-    public function getOrder(){
-        $orders = Order::with('users')->with('product')->get();
+    public function getAdminPage(){
+        $orders = Order::with('product')->get();
         $users = DB::table('users')->select('id','name','email','phoneNumber')->get();
-        //error_log($users);
+        $products = Product::with('pictures')->get();
         error_log($orders);
-        return view('admin', ['orderdata'=>$orders]);
+        error_log($users);
+        error_log($products);
+        return view('admin', ['data'=>[$orders,$users,$products]]);
     }
 
+    public function updateStock($quantity, $value)
+    {
+
+    }
+
+    public function createProduct()
+    {
+
+    }
 
 }

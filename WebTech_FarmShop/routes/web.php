@@ -32,7 +32,7 @@ Route::get('/', function () {
 
 Route::get('/buy', [BuyController::class,'getBuyPage'])->name("buy");
 
-Route::get('/admin', [AdminController::class,'getOrder'])->name("admin");
+Route::get('/admin', [AdminController::class,'getAdminPage'])->name("admin");
 
 
 Route::get('/userpage', function () {
