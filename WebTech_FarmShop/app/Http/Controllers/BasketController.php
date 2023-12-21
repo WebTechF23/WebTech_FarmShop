@@ -47,7 +47,17 @@ class BasketController extends Controller
                     // Update the stock quantity if quantity is high enough
 
 
-                    $order = Order::
+                    // Creating of order
+
+                    error_log(Auth::user()->name);
+
+                    $order = Order::create([
+                        'date' => now(),
+//                        'user_id' => Auth::user()->id,
+                    ]);
+
+
+
 
 
                     session()->flash('database_updated', 'Reservation completed successfully!');
