@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Order;
+use App\Models\OrderProduct;
 use App\Models\Picture;
 use App\Models\Product;
 use App\Models\Stock;
@@ -45,5 +47,25 @@ class DatabaseSeeder extends Seeder
             $en->description = $productDescrip[$j];
             $en->save();
         }
+
+        // Test - Create an order
+        $order = Order::create([
+            'date' => now(),
+            'user_id' => 1,
+        ]);
+
+        // Attach products to the order
+        $products = Product::inRandomOrder()->limit(3)->get();
+        foreach ($products as $product) {
+            OrderProduct::create([
+                'order_id' => $order->id,
+                'product_id' => $product->id,
+                'quantity' => rand(1, 5),
+                'unit_price' => $product->price,
+            ]);
+        }
+
+
+
     }
 }

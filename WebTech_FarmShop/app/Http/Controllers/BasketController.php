@@ -42,12 +42,16 @@ class BasketController extends Controller
 
                 // Check if
                 if ($stock->quantity >= $quantity) {
-                $stock->quantity -= $quantity;
-                $stock->save();
-                // Update the stock quantity if quantity is high enough
+                    $stock->quantity -= $quantity;
+                    $stock->save();
+                    // Update the stock quantity if quantity is high enough
+
+
+                    $order = Order::
+
 
                     session()->flash('database_updated', 'Reservation completed successfully!');
-//                    return redirect()->back();
+                    // return redirect()->back();
                 } else {
 
                     session()->flash('insufficient_stock', 'Sorry, insufficient stock');
@@ -55,6 +59,7 @@ class BasketController extends Controller
                 }
             }
         }
+
 
         // Redirect home
         $url = route('basket');
@@ -64,6 +69,34 @@ class BasketController extends Controller
         //Testing
         error_log("Got this far..");
 
+
+        /*
+         *$data = $request->all();
+
+        foreach ($data as $productName => $quantity) {
+
+            $product = Product::where('name', $productName)->first();
+
+            if ($product) {
+                // Find or create stock for the product
+                $stock = Stock::firstOrNew(['id' => $product->id]);
+
+                // Check if
+                if ($stock->quantity >= $quantity) {
+                    $stock->quantity -= $quantity;
+                    $stock->save();
+                    // Update the stock quantity if quantity is high enough
+
+                    session()->flash('database_updated', 'Reservation completed successfully!');
+                    // return redirect()->back();
+                } else {
+
+                    session()->flash('insufficient_stock', 'Sorry, insufficient stock');
+                    return redirect()->back();
+                }
+            }
+        }
+         */
 
         /*
 
