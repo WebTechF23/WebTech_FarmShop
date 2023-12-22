@@ -16,9 +16,9 @@
 @section('main')
     <div class="basket-main">
         <h1>Reserve your products here!</h1>
-{{--        <button id="updateBasketButton" onclick="updateBasket()">--}}
-{{--            Fetch Basket--}}
-{{--        </button>--}}
+        <button id="updateBasketButton" onclick="updateBasket()">
+            Fetch Basket
+        </button>
 
         <br>
         <form id="basket-form" method="POST" action="{{url('BasketController/finalizePurchase')}}">
