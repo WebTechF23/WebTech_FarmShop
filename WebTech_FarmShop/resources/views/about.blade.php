@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-md-4 padder">
-                <img src="{{ asset('images/Cow_female_black_white.jpg') }}" alt="stockPhoto1" class="grid-picture" >
+                <img src="{{ asset('images/IMG_0770.jpeg') }}" alt="stockPhoto1" class="grid-picture" >
             </div>
             <div class="col-xs-12 col-md-8">
                 <div class="text-box">
@@ -23,13 +23,29 @@
         </div>
         <div class="row">
             <div class="col-xs-12 col-md-4 padder">
-                <img src="{{ asset('images/depositphotos_7315837-stock-photo-storm-is-coming-on-american.jpg') }}" alt="stockPhoto2" class="grid-picture">
+                <img src="{{ asset('images/IMG_3103.jpeg ') }}" alt="stockPhoto2" class="grid-picture">
             </div>
             <div class="col-xs-12 col-md-8">
                 <div class="text-box">
                     <p>
                         Venturing further into the rustic charm of our establishment, Farm Shop emerges as an extension of our passion for organic agriculture and ethical farming practices. Here, the shelves brim with natural foods from heritage grains to raw, unfiltered honey, and meats raised in pastures not pens. Our dedication is evident in the rich flavors and unmatched purity of our products, all non-GMO and free from synthetic pesticides. Every visit to Meadowlark is more than just a shopping trip—it's an immersive experience into the rhythms of nature and a celebration of the artisanal spirit. Join us as we honor the land and the diligent hands that nurture it, bringing not just food, but a story to your table.
                     </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-md-12">
+                    <div class="text-boxContant">
+                        <h3 style="color : white">
+                            Phone number : 123456789 <br>
+                            <img class="logo" src="{{asset('images/FarmShop-logos_white.png')}}" alt="logo" style="float: right" >
+
+                            Email :        at@at.com <br>
+                            Adress : Placeholderroad nr 15a <br>
+                            CVR : 671327813
+
+                        </h3>
+
+                    </div>
                 </div>
             </div>
         </div>
