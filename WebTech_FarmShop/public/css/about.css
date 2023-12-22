@@ -24,7 +24,7 @@
         text-align: justify;
         height: 300px;
         transition: transform .2s;
-
+        color: white;
 
     }
     .text-boxContant {

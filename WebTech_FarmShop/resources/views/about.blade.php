@@ -6,6 +6,8 @@
     <title>About page</title>
 @endsection
 
+@section('header')
+@endsection
 
 @section('main')
     <div class="container">
