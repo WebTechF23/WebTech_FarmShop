@@ -7,6 +7,7 @@ use App\Models\Order_product;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 
@@ -22,11 +23,16 @@ class UserController extends Controller
 */
 
     public function userOrderHistory(){
+        $id = 1;
+
         $orders = Order::with('users')->with('product')->get();
         //$products = Order_product::with('orders')->get();
-        //error_log($products);
-        error_log($orders);
-        return view('userpage', ['orderdata'=>$orders]);
+        $order = Order::with('users')->where('user_id','=', $id)->with('product')->get();
+
+        $products = Order_product::where('order_id','=',$order[0]->id)->get();
+        error_log($products);
+        error_log($order);
+        return view('userpage', ['orderdata'=>$order,$products]);
     }
 
 }

@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\BuyController;
-use App\Http\Controllers\homeController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogOutController;
 use App\Http\Controllers\RegisterController;

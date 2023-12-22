@@ -22,7 +22,10 @@
             'OrderID'=>$item->id,
             'orderDate'=>$item->date,
             'productName'=>$item->name])
-        <p><p>
+        <p>{{$orderdata}}<p>
+        <p>{{$item->product[1]}}<p>
+            <p>{{$item->product[2]}}<p>
+            <p>{{$item->product[3]}}<p>
     @endforeach
 @endsection
 
