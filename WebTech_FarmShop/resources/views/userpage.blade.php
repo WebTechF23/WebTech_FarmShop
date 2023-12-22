@@ -19,7 +19,10 @@
         @include("components.orderHistory",[
             'boughtAmount'=>$item->quantityBought,
             'priceTotal'=>$item->totalPrice,
-            'OrderID'=>$item->id])
+            'OrderID'=>$item->id,
+            'orderDate'=>$item->date,
+            'productName'=>$item->name])
+        <p><p>
     @endforeach
 @endsection
 

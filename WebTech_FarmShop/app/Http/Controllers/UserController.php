@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -21,6 +22,8 @@ class UserController extends Controller
 
     public function userOrderHistory(){
         $orders = Order::with('users')->with('product')->get();
+        $products = Product::with('orders')->get();
+        error_log($products);
         error_log($orders);
         return view('userpage', ['orderdata'=>$orders]);
     }
