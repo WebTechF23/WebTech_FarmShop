@@ -9,6 +9,9 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Expr\Cast\Object_;
+use function Laravel\Prompts\error;
+use function Laravel\Prompts\select;
 
 
 class UserController extends Controller
@@ -22,17 +25,31 @@ class UserController extends Controller
     }
 */
 
-    public function userOrderHistory(){
-        $id = 1;
+    public function userOrderHistory($id){
+        $id2=1;
+        $data= collect();
+        $order = Order::with('users')->where('user_id','=', $id2)->get();
+        $products = Product::all();
+        $Order_product = Order_product::all();
+        error_log($Order_product);
+        foreach ($Order_product as $x ) {
+            for ($i = 0; $i < count($products); $i++) {
+                if ($x->product_id == $products[$i]->id) {
+                    $asArray = ['name' => $products[$i]->name, 'product_id' => $x->product_id, 'price' => $products[$i]->unit_price, 'quantityBrought' => $x->quantity, 'order_id' => $x->order_id];
+                    $data->push('product', $asArray);
 
-        $orders = Order::with('users')->with('product')->get();
-        //$products = Order_product::with('orders')->get();
-        $order = Order::with('users')->where('user_id','=', $id)->with('product')->get();
 
-        $products = Order_product::where('order_id','=',$order[0]->id)->get();
-        error_log($products);
-        error_log($order);
-        return view('userpage', ['orderdata'=>$order,$products]);
+                }
+
+            }
+
+        }
+
+
+
+//        error_log($products);
+//        error_log($order);
+        return view('userpage', ['orderdata'=>$order,$data]);
     }
 
 }

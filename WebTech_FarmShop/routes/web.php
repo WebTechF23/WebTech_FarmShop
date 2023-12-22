@@ -46,7 +46,7 @@ Route::post('/BasketController/finalizePurchase',[BasketController::class,'final
 })->name("userpage");
 */
 
-Route::get('/userpage', [UserController::class,'userOrderHistory'])->name("userpage");
+Route::get('/userpage/{id}', [UserController::class,'userOrderHistory'])->name("userpage");
 
 Route::get('/loginPage', function () {
     return view('login');
