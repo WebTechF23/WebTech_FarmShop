@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BasketController;
 use App\Http\Controllers\BuyController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogOutController;
@@ -7,6 +8,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +34,9 @@ Route::get('/', function () {
 
 Route::get('/buy', [BuyController::class,'getBuyPage'])->name("buy");
 
+Route::get('/admin', [AdminController::class,'getAdminPage'])->name("admin");
+
+Route::post('/BasketController/finalizePurchase',[BasketController::class,'finalizePurchase'])->name('confirmBuy');
 
 /*Route::get('/userpage', function () {
     return view('userpage');
@@ -63,3 +68,23 @@ Route::get('/basket', function () {
 Route::get('/welcome', function () {
     return view('welcome');
 })->name("welcome");
+
+Route::get('/about', function () {
+    return view('about');
+})->name("about");
+/*
+Route::group(['middleware' => 'admin'], function (){
+    return view('admin');
+})->name("admin");
+*/
+
+/*Route::get('/admin', function (){
+    return view('admin');
+})->name("admin");*/
+
+#todo fix routing to make it secure
+
+#testing item thingy prob not right
+Route::get('/Stock/{id}', 'ItemController@getItem')->name('get.item');
+
+Route::put('/update-stock/{id}','BasketController@updateQuantity');
