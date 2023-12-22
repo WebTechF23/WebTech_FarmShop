@@ -40,6 +40,8 @@ Route::get('/admin', [AdminController::class,'getAdminPage'])->name("admin");
 
 Route::post('/BasketController/finalizePurchase',[BasketController::class,'finalizePurchase'])->name('confirmBuy');
 
+Route::delete('/admin/{id}', 'AdminController@destroy')->name('user.deleteUser');
+
 Route::get('/userpage', function () {
     return view('userpage');
 })->name("userpage");
