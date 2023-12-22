@@ -1,5 +1,10 @@
 console.log("BASKET BUY YEE");
 
+// Updates the page when you enter (no need to fetch basket)
+document.addEventListener("DOMContentLoaded", function () {
+    updateBasket();
+});
+
 
 function updateBasket() {
 
@@ -7,7 +12,7 @@ function updateBasket() {
     let storedBasket = localStorage.getItem("loadedBasket");
     myBasket = JSON.parse(storedBasket);
 
-    let basketContainer = document.getElementById('basket-main');
+    let basketContainer = document.getElementById('basket-form');
 
 
     //basketContainer.innerHTML = " ";
@@ -18,8 +23,8 @@ function updateBasket() {
 
     // Checks, and creates header
     if (!existingHeader) {
-        let basketHeader = document.createElement('h3');
-        basketHeader.textContent = 'Basket contains';
+        let basketHeader = document.createElement('h2');
+        basketHeader.textContent = 'Basket contains:';
         basketContainer.append(basketHeader);
 
         let lineBreak = document.createElement('br');
@@ -31,7 +36,7 @@ function updateBasket() {
     // Iterates trough items from the localStorage object, and makes corresponding elements
     myBasket.items.forEach(item => {
 
-            // Skip creating the item if it already exists
+        // Skip creating the item if it already exists
         if (document.querySelector(`[name="${item.name}"]`)) {
             return;
         }
@@ -62,6 +67,7 @@ function updateBasket() {
 
         let removeButton = document.createElement('button');
         removeButton.textContent = 'Remove from basket';
+
         removeButton.addEventListener('click', function () {
 
 
@@ -86,26 +92,4 @@ function updateBasket() {
 
 }
 
-
-function finalizePurchase() {
-
-    console.log("Finalize Purchase: ");
-
-    let storedBasket = localStorage.getItem("loadedBasket");
-    myBasket = JSON.parse(storedBasket);
-    console.log(myBasket);
-
-    /*$.ajax({
-        type:'POST',
-        url: '/purchase',
-        data: myBasket,
-        dataType:'json',
-        success: function (){
-            console.log(("success"));
-        },
-        error: function (){
-            console.log("Error");
-        }
-    })*/
-}
 
