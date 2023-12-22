@@ -17,7 +17,7 @@ class LoginController extends Controller
     ]);
 
     if(Auth::attempt($credentials)){
-        $url = route('homeController');
+        $url = route('home');
         $request->session()->regenerate();
         return redirect($url);
     }
