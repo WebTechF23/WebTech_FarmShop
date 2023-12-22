@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans:ital,wght@0,300;1,400&family=Roboto+Mono:wght@100&display=swap');
 
 :root {
-    --main-color: #466730; /* Temporary */
+    --main-color: #3e6730; /* Temporary */
     --mainbackground-color: #4f8150; /* Temporary */
 }
 
@@ -122,6 +122,12 @@ textarea {
     width: 200px;
 }
 
+#product-title {
+    margin-bottom: 10px;
+
+}
+
+
 .basket-main {
     display: flex;
     margin: 30px;
@@ -139,9 +145,7 @@ textarea {
 }
 
 #updateBasketButton {
-
-    margin: 12px;
-    width: 60px
+    margin-left: 12px;
 
 }
 
@@ -152,7 +156,7 @@ textarea {
     border-style: solid;
     border-radius: 20px;
     border-color: var(--main-color);
-
+    background-color: #6bb05f;
 }
 
 
@@ -200,7 +204,7 @@ li, a {
 
 .btn {
     margin-top: 30px;
-    color: #64814f;
+    color: #000000;
     font-size: 20px;
     width: 150px;
     height: 40px;
@@ -237,7 +241,7 @@ li, a {
 }
 
 .user_container h1,p {
-    color: white;
+    color: #000000;
     padding-bottom: 10px;
     padding-top: 10px;
 }

@@ -16,7 +16,7 @@
 @section('main')
     <div class="basket-main">
         <h1>Reserve your products here!</h1>
-        <button id="updateBasketButton" onclick="updateBasket()">
+        <button id="updateBasketButton" class="updateBasketButton btn btn-primary" onclick="updateBasket()">
             Fetch Basket
         </button>
 
