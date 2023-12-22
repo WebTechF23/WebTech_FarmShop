@@ -7,6 +7,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 @endsection
 
+{{--Delete this please--}}
 
 @section('header')
     <h1>Basket</h1>
