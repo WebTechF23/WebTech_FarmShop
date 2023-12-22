@@ -42,7 +42,6 @@ class BasketController extends Controller
                     ];
 
 
-
                     session()->flash('database_updated', 'Reservation completed successfully!');
                     // return redirect()->back();
                 } else {
@@ -72,9 +71,6 @@ class BasketController extends Controller
         $url = route('basket');
         return redirect($url);
 
-
-        //Testing
-        error_log("Got this far..");
 
 
         /*
