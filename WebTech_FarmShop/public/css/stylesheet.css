@@ -133,10 +133,19 @@ textarea {
 
 
 #basket-form * {
-    margin: 8px;
+    margin: 6px;
     padding: 2px;
 
 }
+
+#updateBasketButton {
+
+    margin: 12px;
+    width: 60px
+
+}
+
+
 
 #basket-form {
     width: 300px;
