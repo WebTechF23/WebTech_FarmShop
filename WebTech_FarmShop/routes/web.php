@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\BuyController;
+use App\Http\Controllers\homeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogOutController;
 use App\Http\Controllers\RegisterController;
@@ -22,7 +23,7 @@ use App\Http\Controllers\AdminController;
 
 /*
 Route::get('/', function () {
-    return view('home');
+    return view('homeController');
 });
 */
 
@@ -30,6 +31,8 @@ Route::get('/', function () {
     return view('home');
 })->name("home");
 
+////test of query
+//Route::get('/',[HomeController::class,'getHomePage'] )->name("home");
 
 Route::get('/buy', [BuyController::class,'getBuyPage'])->name("buy");
 

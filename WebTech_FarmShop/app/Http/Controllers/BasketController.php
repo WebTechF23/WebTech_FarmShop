@@ -71,7 +71,7 @@ class BasketController extends Controller
         }
 
 
-        // Redirect home
+        // Redirect homeController
         $url = route('basket');
         return redirect($url);
 
