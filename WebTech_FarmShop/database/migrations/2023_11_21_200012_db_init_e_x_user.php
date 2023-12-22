@@ -37,7 +37,7 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->double('price');
+            $table->double('unit_price');
             $table->string('dateAdded');
             $table->string('description');
             $table->unsignedBigInteger('picture_id');
@@ -53,7 +53,6 @@ return new class extends Migration
             $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('product_id');
             $table->integer("quantity");
-            $table->double("unit_price");
             $table->timestamps();
 
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');

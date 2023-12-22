@@ -6,31 +6,19 @@ use App\Models\Order;
 use App\Models\Product;
 use App\Models\Stock;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use function MongoDB\BSON\toJSON;
 
 class BasketController extends Controller
 {
-    public function updateQuantity2(Request $request, $id)
-    {
-
-        //Validate ....
-        $request->validate([
-            'quantity' => 'required|integer|min:0',
-        ]);
-
-        $stock = Stock::findOrFail($id);
-
-        $stock->update([
-            'quantity' => $request->input('quantity'),
-        ]);
-
-    }
 
 
     public function finalizePurchase(Request $request)
     {
         // Data from request
         $data = $request->all();
+
+        $orderItems = [];
 
         foreach ($data as $productName => $quantity) {
 
@@ -40,7 +28,7 @@ class BasketController extends Controller
                 // Find or create stock for the product
                 $stock = Stock::firstOrNew(['id' => $product->id]);
 
-                // Check if
+                // Check if stock is large enough
                 if ($stock->quantity >= $quantity) {
                     $stock->quantity -= $quantity;
                     $stock->save();
@@ -48,16 +36,10 @@ class BasketController extends Controller
 
 
                     // Creating of order
-
-                    error_log(Auth::user()->name);
-
-                    $order = Order::create([
-                        'date' => now(),
-//                        'user_id' => Auth::user()->id,
-                    ]);
-
-
-
+                    $orderItems[] = [
+                        'product_id' => $product->id,
+                        'quantity' => $quantity,
+                    ];
 
 
                     session()->flash('database_updated', 'Reservation completed successfully!');
@@ -70,14 +52,25 @@ class BasketController extends Controller
             }
         }
 
+        if (!empty($orderItems)) {
+            $userID = Auth::user()->id;
 
-        // Redirect home
+            $order = Order::create([
+                'date' => now(),
+                'user_id' => $userID,
+            ]);
+
+            // Makes final order
+            $order->product()->attach($orderItems);
+
+
+        }
+
+
+        // Redirect homeController
         $url = route('basket');
         return redirect($url);
 
-
-        //Testing
-        error_log("Got this far..");
 
 
         /*

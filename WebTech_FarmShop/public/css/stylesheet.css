@@ -2,7 +2,11 @@
 
 :root {
     --main-color: #466730; /* Temporary */
-    --mainbackground-color: #64814f; /* Temporary */
+    --mainbackground-color: #4f8150; /* Temporary */
+}
+
+body {
+    background-color: var(--mainbackground-color);
 }
 
 * {
@@ -56,7 +60,7 @@ header {
 }
 
 .nav_links li a:hover {
-    background-color: #53a0af;
+    background-color: #6aaf53;
 }
 
 .footer_line {
@@ -87,6 +91,7 @@ textarea {
     flex-direction: column;
     align-items: center;
     width: 250px;
+    margin-bottom: 30px;
     /*align-content: center;*/
 }
 
@@ -99,6 +104,20 @@ textarea {
     width: 800px;
 }
 
+/*#basket-form-submit {*/
+/*    display: inline-block;*/
+/*    padding: 10px 20px;*/
+/*    font-size: 16px;*/
+/*    text-align: center;*/
+/*    text-decoration: none;*/
+/*    cursor: pointer;*/
+/*    border: none;*/
+/*    border-radius: 5px;*/
+/*    color: #fff;*/
+/*    transition: background-color 0.3s, box-shadow 0.3s;*/
+/*}*/
+
+
 .product-description {
     width: 200px;
 }
@@ -109,8 +128,24 @@ textarea {
     flex-direction: column;
     justify-content: space-around;
     flex-wrap: wrap;
-    width: 400px;
+    width: 500px;
 }
+
+
+#basket-form * {
+    margin: 8px;
+    padding: 2px;
+
+}
+
+#basket-form {
+    width: 300px;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: var(--main-color);
+
+}
+
 
 
 li, a {
@@ -131,7 +166,7 @@ li, a {
 
 .main {
     margin-top: 42px;
-    background-color: #53a0af;
+    background-color: var(--mainbackground-color);
     display: flex;
     width: 100%;
     padding: 30px;
@@ -145,7 +180,7 @@ li, a {
     text-align: center;
     width: 350px;
     height: 250px;
-    background-color: #718096;
+    background-color: var(--mainbackground-color);
     border-radius: 20px;
     padding: 5px 10px;
 }
@@ -201,18 +236,4 @@ li, a {
     text-decoration: underline;
 }
 
-.forms-grouping{
-    position: relative;
-    left: 800px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
 
-.submitBtn{
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-
-}

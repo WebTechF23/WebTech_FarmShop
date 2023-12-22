@@ -12,6 +12,11 @@ class User extends Authenticatable
 {
     use HasFactory,Notifiable;
 
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
     public function isAdmin(){
         return $this->role === 'admin';
     }
