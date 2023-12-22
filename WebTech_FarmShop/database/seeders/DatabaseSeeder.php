@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
         for ($j = 0; $j < count($arr); $j++) {
             $en = new Product();
             $en->name = $arr[$j];
-            $en->price = 25;
+            $en->unit_price = 25;
             $en->dateAdded = date('Y-m-d H:i:s');
             $en->picture_id = $j + 1;
             $en->stock_id = $j + 1;
@@ -74,7 +74,6 @@ class DatabaseSeeder extends Seeder
                 'order_id' => $order->id,
                 'product_id' => $product->id,
                 'quantity' => rand(1, 5),
-                'unit_price' => $product->price,
             ]);
         }
 
