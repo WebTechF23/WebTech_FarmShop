@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
         $testUser->email = "test@test";
         $testUser->password = Hash::make("test");
         $testUser->phoneNumber = "11";
+        $testUser->isAdmin = true;
         $testUser->save();
 
         $arr = ["roast", "steaks", "beef_sausages", "minced_beef", "potatoes", "beef_salami"];

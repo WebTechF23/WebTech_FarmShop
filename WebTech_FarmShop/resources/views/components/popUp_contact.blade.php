@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="{{asset('css/popUp.ass')}}">
+
 <div class="container">
     <h1>Contact information</h1>
     <h2>Phone: 12341234</h2>

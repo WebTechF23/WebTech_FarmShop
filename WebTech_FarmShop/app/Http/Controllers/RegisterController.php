@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 class RegisterController extends Controller
 {
     public function register(Request $request){
-        $url = route('home');
+        $url = route('homeController');
         $User = new User();
         $User->name = $request->input('name');
         $User->email = $request->input('email');

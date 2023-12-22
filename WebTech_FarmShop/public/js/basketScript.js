@@ -18,7 +18,7 @@ function updateBasket() {
 
 
     // h3 Header creation
-    let existingHeader = basketContainer.querySelector('h3');
+    let existingHeader = basketContainer.querySelector('h2');
 
     // Checks, and creates header
     if (!existingHeader) {
