@@ -1,4 +1,3 @@
-console.log("BASKET BUY YEE");
 
 // Updates the page when you enter (no need to fetch basket)
 // document.addEventListener("DOMContentLoaded", function () {
