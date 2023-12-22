@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans:ital,wght@0,300;1,400&family=Roboto+Mono:wght@100&display=swap');
 
 :root {
-    --main-color: #3e6730; /* Temporary */
-    --mainbackground-color: #4f8150; /* Temporary */
+    --main-color: #417544;
+    --mainbackground-color: #4f8150;
+    --special-container-color: #3a753d;
 }
 
 body {
@@ -156,7 +157,7 @@ textarea {
     border-style: solid;
     border-radius: 20px;
     border-color: var(--main-color);
-    background-color: #6bb05f;
+    background-color: var(--special-container-color);
 }
 
 
@@ -224,7 +225,7 @@ li, a {
     transform: translate(-50%,-50%);
     position: fixed;
     text-align: center;
-    background-color: #64814f;
+    background-color: var(--special-container-color);
     padding: 50px;
     border-radius: 20px;
 
@@ -241,7 +242,7 @@ li, a {
 }
 
 .user_container h1,p {
-    color: #000000;
+    /*color: #ffffff;*/
     padding-bottom: 10px;
     padding-top: 10px;
 }
@@ -249,4 +250,7 @@ li, a {
     text-decoration: underline;
 }
 
+.footer_line p {
+    color: white;
+}
 
