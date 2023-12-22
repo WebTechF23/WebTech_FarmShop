@@ -3,7 +3,8 @@
 @extends('ViewTemplate')
 
 @section('title')
-    <title>Basket</title>
+    <script src="{{asset('js/basketScript.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 @endsection
 
 
@@ -13,25 +14,32 @@
 
 
 @section('main')
-    <div>
-        <h1>Confirm Your Purchase</h1>
-        <div class="basket-main">
+    <div class="basket-main">
+        <h1>Reserve your products here!</h1>
+{{--        <button id="updateBasketButton" onclick="updateBasket()">--}}
+{{--            Fetch Basket--}}
+{{--        </button>--}}
 
-            <h3>Your order</h3>
-            <p>Roast: 0</p>
-            <p>Steaks: 0</p>
-            <p>Beef Sausage: 0</p>
-            <p>Minced Beef: 0</p>
-            <p>Potatoes: 0</p>
-            <p>Beef Salami: 0</p>
+        <br>
+        <form id="basket-form" method="POST" action="{{url('BasketController/finalizePurchase')}}">
+            @csrf
 
-            <button>
-                Confirm Purchase
-            </button>
+            <input type="submit" class="submitToBasketBtn btn btn-primary" value="Submit order">
+            <br>
+            <br>
+        </form>
 
-
-
-        </div>
+        @if(session('insufficient_stock'))
+            <h3 class="alert alert-danger">
+                {{ session(('insufficient_stock')) }}
+            </h3>
+        @endif
+        @if(session('database_updated'))
+            <h3 class="alert alert-danger">
+                {{ session(('database_updated')) }}
+            </h3>
+        @endif
+        <br>
     </div>
 
 @endsection

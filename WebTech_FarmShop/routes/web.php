@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\BasketController;
 use App\Http\Controllers\BuyController;
+use App\Http\Controllers\homeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogOutController;
 use App\Http\Controllers\RegisterController;
@@ -21,7 +23,7 @@ use App\Http\Controllers\AdminController;
 
 /*
 Route::get('/', function () {
-    return view('home');
+    return view('homeController');
 });
 */
 
@@ -29,10 +31,14 @@ Route::get('/', function () {
     return view('home');
 })->name("home");
 
+////test of query
+//Route::get('/',[HomeController::class,'getHomePage'] )->name("home");
 
 Route::get('/buy', [BuyController::class,'getBuyPage'])->name("buy");
 
 Route::get('/admin', [AdminController::class,'getAdminPage'])->name("admin");
+
+Route::post('/BasketController/finalizePurchase',[BasketController::class,'finalizePurchase'])->name('confirmBuy');
 
 Route::delete('/admin/{id}', 'AdminController@destroy')->name('user.deleteUser');
 
@@ -81,3 +87,5 @@ Route::group(['middleware' => 'admin'], function (){
 
 #testing item thingy prob not right
 Route::get('/Stock/{id}', 'ItemController@getItem')->name('get.item');
+
+Route::put('/update-stock/{id}','BasketController@updateQuantity');
