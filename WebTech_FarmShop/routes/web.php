@@ -34,6 +34,7 @@ Route::get('/buy', [BuyController::class,'getBuyPage'])->name("buy");
 
 Route::get('/admin', [AdminController::class,'getAdminPage'])->name("admin");
 
+Route::delete('/admin/{id}', 'AdminController@destroy')->name('user.deleteUser');
 
 Route::get('/userpage', function () {
     return view('userpage');

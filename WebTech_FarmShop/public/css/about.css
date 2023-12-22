@@ -1,0 +1,12 @@
+.grid-picture{
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+    align-items: center;
+    border: 3px black solid;
+    border-radius: 5px;
+}
+
+.container-about{
+
+}
