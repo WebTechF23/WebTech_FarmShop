@@ -72,7 +72,7 @@ return new class extends Migration
         Schema::dropIfExists('stock');
         Schema::dropIfExists('orders');
         Schema::dropIfExists('products');
-        Schema::dropIfExists('orders_products');
+        Schema::dropIfExists('order_products');
     }
 };
 
