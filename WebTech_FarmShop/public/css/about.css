@@ -1,12 +1,41 @@
+
 .grid-picture{
     background-size: cover;
-    width: 300px;
     height: 300px;
     align-items: center;
-    border: 3px black solid;
-    border-radius: 5px;
+    border: 3px white solid;
+    border-radius: 10px;
+    width: 300px;
+    transition: transform .2s;
+
 }
 
-.container-about{
+.grid-picture:hover{
+    transform: scale(1.05);
+}
 
+
+.text-box {
+    border: 3px solid white;
+    border-radius: 5px;
+    font-size: 1.15vw;
+    padding: 3px;
+    text-align: justify;
+    height: 300px;
+    transition: transform .2s;
+
+
+}
+
+.text-box:hover{
+    transform: scale(1.05);
+
+}
+
+.container{
+    padding: 15px;
+}
+
+.padder{
+    padding-bottom: 15px;
 }

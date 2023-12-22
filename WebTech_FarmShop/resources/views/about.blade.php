@@ -1,55 +1,38 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="{{asset('css/about.ass')}}"
 @extends('ViewTemplate')
+<link rel="stylesheet" href="{{asset('css/about.css')}}"
 
 @section('title')
     <title>About page</title>
 @endsection
 
+
 @section('main')
-    <div class="container-about">
+    <div class="container">
         <div class="row">
-            <div class="col">
-                <div class="grid-picture">
-                    <img src="{{asset('images/Cow_female_black_white.jpg')}}" alt="stockPhoto1" width="300" height="300">
-                </div>
+            <div class="col-xs-12 col-md-4 padder">
+                <img src="{{ asset('images/Cow_female_black_white.jpg') }}" alt="stockPhoto1" class="grid-picture" >
             </div>
-            <div class="col">
-                <div>
-                    Step into our online farm shop, where the essence of the countryside meets the savory world of
-                    premium
-                    meats. Welcome to a haven for carnivores, where each click unveils a selection that's as rich in
-                    flavor
-                    as
-                    it is in tradition.
-
-                    Picture a digital marketplace where the finest cuts of meat take center stage—succulent steaks,
-                    juicy
-                    roasts, and tender chops, all sourced from trusted local farmers who prioritize quality and humane
-                    practices. Our e-commerce farm shop is your gateway to a carnivore's paradise, where every meaty
-                    desire
-                    finds its match.
+            <div class="col-xs-12 col-md-8">
+                <div class="text-box">
+                    <p>
+                        Welcome to the Farm Shop, where we bring the freshest produce right to your table. Our family-owned shop features an abundance of locally-sourced fruits, vegetables, and handcrafted goods. As you wander through our aisles, you'll find a colorful tapestry of seasonal items, artisanal cheeses, and freshly-baked bread. Our commitment is to sustainability and community, ensuring that every purchase supports local farmers and artisans. Discover the true taste of the countryside with our selection of organic, non-GMO, and pesticide-free products. Green Acres is not just a shop; it's a return to the wholesome simplicity of farm-to-fork living.
+                    </p>
                 </div>
             </div>
         </div>
-        <div class="col">
-            <div class="grid-picture">
-                <img
-                    src="{{asset('images/depositphotos_7315837-stock-photo-storm-is-coming-on-american.jpg')}}" alt="stockPhoto2" width="300" height="300"></div>
-        </div>
-        <div class="col">
-            <div class="grid-text">
-                Browse through our virtual butcher's block, where each product comes with a story, a journey from
-                pasture to
-                plate. Feel the connection to the land as you explore the variety of cuts, from grass-fed beef to
-                free-range
-                poultry. It's a celebration of craftsmanship and a commitment to bringing the best to your table.
-
-                As you shop with us, you're not just selecting cuts of meat; you're embracing a culinary adventure that
-                respects nature's rhythm. Join us in savoring the excellence of locally sourced, premium meats—all just
-                a
-                click away. Your journey into the world of exceptional flavors begins here. Happy feasting!
+        <div class="row">
+            <div class="col-xs-12 col-md-4 padder">
+                <img src="{{ asset('images/depositphotos_7315837-stock-photo-storm-is-coming-on-american.jpg') }}" alt="stockPhoto2" class="grid-picture">
+            </div>
+            <div class="col-xs-12 col-md-8">
+                <div class="text-box">
+                    <p>
+                        Venturing further into the rustic charm of our establishment, Farm Shop emerges as an extension of our passion for organic agriculture and ethical farming practices. Here, the shelves brim with natural foods from heritage grains to raw, unfiltered honey, and meats raised in pastures not pens. Our dedication is evident in the rich flavors and unmatched purity of our products, all non-GMO and free from synthetic pesticides. Every visit to Meadowlark is more than just a shopping trip—it's an immersive experience into the rhythms of nature and a celebration of the artisanal spirit. Join us as we honor the land and the diligent hands that nurture it, bringing not just food, but a story to your table.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
 @endsection
+
