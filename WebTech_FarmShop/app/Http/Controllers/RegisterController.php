@@ -10,8 +10,8 @@ class RegisterController extends Controller
 {
     public function register(Request $request){
         $url = route('home');
-     $User = new User();
-       $User->name = $request->input('name');
+        $User = new User();
+        $User->name = $request->input('name');
         $User->email = $request->input('email');
         $User->password = Hash::make($request->input('password'));
         $User->phoneNumber = $request->input('phoneNumber');
