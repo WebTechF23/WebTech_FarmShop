@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Order;
+use App\Models\Order_product;
 use App\Models\OrderProduct;
 use App\Models\Picture;
 use App\Models\Product;
@@ -67,9 +68,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // Attach products to the order
-        $products = Product::inRandomOrder()->limit(3)->get();
+        $products = Product::inRandomOrder()->limit(4)->get();
         foreach ($products as $product) {
-            OrderProduct::create([
+            Order_product::create([
                 'order_id' => $order->id,
                 'product_id' => $product->id,
                 'quantity' => rand(1, 5),
