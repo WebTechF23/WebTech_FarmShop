@@ -42,8 +42,9 @@
     </div>
     <div>
         <div>
-
-
+            {{--Window to add product--}}
+            <h1>Create product</h1>
+                @include("components.createProduct")
         </div>
     </div>
 @endsection
