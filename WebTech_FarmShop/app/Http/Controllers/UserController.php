@@ -16,28 +16,35 @@ use function Laravel\Prompts\select;
 
 class UserController extends Controller
 {
-/*
- * //Using the Auth facade to check the user that is logged in instead
-    public function userInformation(){
-        $users = DB::table('users')->select('name','email','phoneNumber')->get();
-
-        return view('userpage',['userData'=>$users]);
-    }
-*/
 
     public function userOrderHistory($id){
-        $id2=1;
-        $data= collect();
-        $order = Order::with('users')->where('user_id','=', $id2)->get();
+        $id2 = 1;
+        $data = collect();
+        $order = Order::with('users')->where('user_id', '=', $id2)->get();
         $products = Product::all();
-        $Order_product = Order_product::all();
-        error_log($Order_product);
-        foreach ($Order_product as $x ) {
-            for ($i = 0; $i < count($products); $i++) {
-                if ($x->product_id == $products[$i]->id) {
-                    $asArray = ['name' => $products[$i]->name, 'product_id' => $x->product_id, 'price' => $products[$i]->unit_price, 'quantityBrought' => $x->quantity, 'order_id' => $x->order_id];
-                    $data->push('product', $asArray);
+        $orderProducts = Order_product::all();
+        error_log($order);
 
+        foreach ($order as $orderItem){
+            $totalPrice = 0;
+
+            foreach ($orderProducts as $orderProduct) {
+                foreach ($products as $product) {
+                    if ($orderProduct->product_id == $product->id) {
+                        $sum = $product->unit_price * $orderProduct->quantity;
+                        $totalPrice+=$sum;
+                        $asArray = [
+                            'name' => $product->name,
+                            'product_id' => $orderProduct->product_id,
+                            'unitPrice' => $product->unit_price,
+                            'quantityBought' => $orderProduct->quantity,
+                            'order_id' => $orderProduct->order_id,
+                            'price'=>$sum,
+                            'totalPrice'=>$totalPrice
+                        ];
+                        $data->push($asArray);
+
+                    }
 
                 }
 
@@ -46,11 +53,9 @@ class UserController extends Controller
         }
 
 
-
-//        error_log($products);
-//        error_log($order);
-        return view('userpage', ['orderdata'=>$order,$data]);
+        return view('userpage', ['orderdata' => $order, 'data' => $data]);
     }
+
 
 }
 

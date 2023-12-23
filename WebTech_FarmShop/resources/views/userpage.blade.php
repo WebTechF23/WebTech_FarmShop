@@ -12,20 +12,56 @@
 
 
 @section('main')
+    <h1>User page</h1>
+
+    <h3>Order view</h3>
     @include("components.userInformation")
 
     <div class="contentContainer">
-    @foreach($orderdata as $item)
-{{--        @include("components.orderHistory",[--}}
-{{--            'boughtAmount'=>$item->quantityBought,--}}
-{{--            'priceTotal'=>$item->totalPrice,--}}
-{{--            'OrderID'=>$item->id,--}}
-{{--            'orderDate'=>$item->date,--}}
-{{--            'productName'=>$item->name])--}}
-        <p>{{$orderdata}}<p>
-{{--        <p>{{$item->product[1]}}<p>--}}
-{{--            <p>{{$item->product[2]}}<p>--}}
-{{--            <p>{{$item->product[3]}}<p>--}}
-    @endforeach
+        <table border="1">
+            <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>User ID</th>
+                <th>Product name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach ($orderdata as $order)
+                <tr>
+                    <td>Order ID: {{ $order->id }}</td>
+                    <td>User ID: {{ $order->user_id }}</td>
+                    <td colspan="5"></td>
+
+                    @foreach ($data as $product)
+                        @if ($product['order_id'] == $order->id)
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>{{ucfirst(str_replace('_',' ',$product['name'] ))}}</td>
+                                <td>{{ $product['unitPrice'] }}</td>
+                                <td>{{ $product['quantityBought'] }}</td>
+                                <td>{{$product['price']}}</td>
+                                <td>{{$product['totalPrice']}}</td>
+                            </tr>
+
+                            @endif
+                        @endforeach
+
+                </tr>
+                        @endforeach
+            </tbody>
+        </table>
+
+        <br>
+        <br>
+
+
+
+
+
 @endsection
 
