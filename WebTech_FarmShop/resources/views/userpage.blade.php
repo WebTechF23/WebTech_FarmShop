@@ -17,7 +17,7 @@
     <h3>Order view</h3>
     @include("components.userInformation")
 
-    <div class="contentContainer">
+    <div class="orderContainer">
         <table border="1">
             <thead>
             <tr>
