@@ -23,7 +23,7 @@ class UserController extends Controller
         $order = Order::with('users')->where('user_id', '=', $id2)->get();
         $products = Product::all();
         $orderProducts = Order_product::all();
-        error_log($order);
+
 
         foreach ($order as $orderItem){
             $totalPrice = 0;
@@ -54,6 +54,19 @@ class UserController extends Controller
 
 
         return view('userpage', ['orderdata' => $order, 'data' => $data]);
+    }
+
+    public function displayUserInfo($userIdToCheck)
+    {
+        if (Auth::check() && Auth::id() == $userIdToCheck) {
+
+            $user = User::find($userIdToCheck, ['id', 'name', 'email', 'phoneNumber']);
+
+
+            return view('userpage', ['user' => $user]);
+        } else {
+            return redirect()->route('home');
+        }
     }
 
 

@@ -15,7 +15,13 @@
     <h1>User page</h1>
 
     <h3>Order view</h3>
-    @include("components.userInformation")
+{{--    @include("components.userInformation")--}}
+{{--    <p>User ID : {{$user->user_id}}</p>--}}
+    <p>Name : {{$user->name}}</p>
+    <P>Email : {{$user->email}}</P>
+    <p>Phone number : {{$user->phoneNumber}}</p>
+
+
 
     <div class="orderContainer">
         <table border="1">
