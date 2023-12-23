@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
 @extends('ViewTemplate')
 
 @section('title')
@@ -12,19 +14,24 @@
 
 
 @section('main')
+    <div class="d-flex flex-column">
     <h1>User page</h1>
 
     <h3>Order view</h3>
 {{--    @include("components.userInformation")--}}
 {{--    <p>User ID : {{$user->user_id}}</p>--}}
-    <p>Name : {{$user->name}}</p>
-    <P>Email : {{$user->email}}</P>
-    <p>Phone number : {{$user->phoneNumber}}</p>
+
+    <div class="user_container" style="top: 0; left: 0; position: relative; transform: translate(0%,0%); height: 250px; width: 200px;">
+        <p>Name : {{$user->name}}</p>
+        <p>Email : {{$user->email}}</p>
+        <p>Phone number : {{$user->phoneNumber}}</p>
+    </div>
+        <br>
+        <br>
 
 
-
-    <div class="orderContainer">
-        <table border="1">
+    <div class="container-lg mt-5">
+        <table class="table-bordered table-dark">
             <thead>
             <tr>
                 <th>Order ID</th>
@@ -61,9 +68,9 @@
                         @endforeach
             </tbody>
         </table>
+    </div>
 
-        <br>
-        <br>
+    </div>
 
 
 
