@@ -60,7 +60,7 @@ Route::get('/registerPage', function (){
 
 Route::post('RegisterController/register',[RegisterController::class,'register'] )->name('register');
 
-
+Route::post('AdminController/createProduct',[AdminController::class,'createProduct'])->name('createProduct');
 Route::get('/basket', function () {
     return view('basket');
 })->name("basket");

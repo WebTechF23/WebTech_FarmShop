@@ -47,4 +47,10 @@
                 @include("components.createProduct")
         </div>
     </div>
+    <div>
+        <div>
+            <h1>Delete product</h1>
+            @include('components.deleteProduct')
+        </div>
+    </div>
 @endsection

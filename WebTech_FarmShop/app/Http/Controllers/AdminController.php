@@ -33,6 +33,8 @@ class AdminController extends Controller
         return view('admin', ['data'=>[$orders,$users,$products]]);
     }
 
+    
+
     public function updateStock($quantity, $value)
     {
 
@@ -47,12 +49,13 @@ class AdminController extends Controller
         //save it
         $stock->save();
         //get new stock id
-        $stockID = $stock->id;
+        $stockID = $stock->id; //think this works
 
         $picture = new Picture();
+
         $picture->save();
 
-        $pictureID = $picture->id;
+        $pictureID = $picture->id; //doesnt work
 
         $product = new Product();
         $product->name = $request->input('name');
@@ -94,8 +97,7 @@ class AdminController extends Controller
         $order->quantityBought = $request->input('quantityBought');
         $order->totalPrice = $request->input('totalPrice');
         $order->user_id = $request->input('user_id'); //for future change to drop down menu or something to search for names so admin doesnt have to cross reference IDs
-        $order->created_at = $request->input('created_at'); //no clue if this is automatic or not, come back to it
-        $order->updated_at = $request->input('updated_at');//same as created_at
+
         //save new order
         $order->save();
 
