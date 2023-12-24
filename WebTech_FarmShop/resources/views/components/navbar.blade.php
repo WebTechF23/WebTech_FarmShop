@@ -19,7 +19,7 @@
                 @endif
             @else()
                 {{--is not logged in--}}
-                <li><a href="{{route('loginPage')}}">Login</a></li>
+                <li><a href="{{route('login')}}">Login</a></li>
             @endif
         </ul>
     </nav>

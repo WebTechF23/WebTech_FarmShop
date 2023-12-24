@@ -15,7 +15,7 @@
 @section('main')
     <div class="user_container">
         <h1>Sign In</h1>
-        <form action="{{route('login')}}" method="post">
+        <form action="{{route('loginAuth')}}" method="post">
             @csrf
             <input class="btn" type="email" id="email_input" name="email" placeholder="Email" required>
             <input class="btn" type="password" id="password_input" name="password" placeholder="Password" required>

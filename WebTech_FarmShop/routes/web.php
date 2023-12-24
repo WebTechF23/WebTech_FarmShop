@@ -27,6 +27,13 @@ Route::get('/', function () {
     return view('homeController');
 });
 */
+Route::middleware(['auth'])->group(function (){
+    Route::get('/admin', [AdminController::class,'getAdminPage'])->name("admin");
+    Route::delete('/admin/{id}', 'AdminController@destroy')->name('user.deleteUser');
+    Route::post('AdminController/createProduct',[AdminController::class,'createProduct'])->name('createProduct');
+    Route::post('/products/{id}', [AdminController::class, 'updateProduct'])->name('products.updateProduct');
+    Route::delete('/delete-item/{name}', [AdminController::class, 'deleteProductByName']);
+});
 
 Route::get('/', function () {
     return view('home');
@@ -37,26 +44,26 @@ Route::get('/', function () {
 
 Route::get('/buy', [BuyController::class,'getBuyPage'])->name("buy");
 
-Route::get('/admin', [AdminController::class,'getAdminPage'])->name("admin");
+
 
 Route::post('/BasketController/finalizePurchase',[BasketController::class,'finalizePurchase'])->name('confirmBuy');
 
-Route::delete('/admin/{id}', 'AdminController@destroy')->name('user.deleteUser');
+
 
 Route::get('/userpage', function () {
     return view('userpage');
 })->name("userpage");
-*/
+
 
 Route::get('/userpage/{id}', [UserController::class,'userOrderHistory'])->name("userpage");
 
-Route::get('/loginPage', function () {
+Route::get('/login', function () {
     return view('login');
-})->name("loginPage");
+})->name("login");
 
 Route::get('/logOut',[LogOutController::class,'logout'] )->name("logOut");
 
-Route::post('/login',[LoginController::class,'authenticate'] )->name("login");
+Route::post('/loginAuth',[LoginController::class,'authenticate'] )->name("loginAuth");
 
 Route::get('/registerPage', function (){
     return view('register');
@@ -64,7 +71,7 @@ Route::get('/registerPage', function (){
 
 Route::post('RegisterController/register',[RegisterController::class,'register'] )->name('register');
 
-Route::post('AdminController/createProduct',[AdminController::class,'createProduct'])->name('createProduct');
+
 Route::get('/basket', function () {
     return view('basket');
 })->name("basket");
@@ -94,6 +101,4 @@ Route::get('/Stock/{id}', 'ItemController@getItem')->name('get.item');
 
 Route::put('/update-stock/{id}','BasketController@updateQuantity');
 
-Route::post('/products/{id}', [AdminController::class, 'updateProduct'])->name('products.updateProduct');
 
-Route::delete('/delete-item/{name}', [AdminController::class, 'deleteProductByName']);
