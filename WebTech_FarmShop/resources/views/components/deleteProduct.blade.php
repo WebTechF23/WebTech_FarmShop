@@ -1,11 +1,20 @@
+<link rel="stylesheet" href="{{asset('css/dropDown.css')}}">
+
 <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Select Item
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        @foreach ($item->product as $item)
-            <a class="dropdown-item" href="#">{{ $item->name }}</a>
+    <label for="dropDown">Chose to delete</label>
+    <button class="dropbtn" id="dropDown">Dropdown</button>
+    <div class="dropdown-content">
+        @foreach ($data[2] as $item)
+            <form action="{{ url('/delete-item/' . $item->id) }}" method="POST" onclick="return confirm('Are you sure you want to delete this product')">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="dropdown-item">{{ $item->name }}</button>
+            </form>
         @endforeach
     </div>
 </div>
+
+
+
+
 

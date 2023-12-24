@@ -89,3 +89,7 @@ Route::group(['middleware' => 'admin'], function (){
 Route::get('/Stock/{id}', 'ItemController@getItem')->name('get.item');
 
 Route::put('/update-stock/{id}','BasketController@updateQuantity');
+
+Route::put('/products/{id}', [AdminController::class, 'updateProduct'])->name('products.updateProduct');
+
+Route::delete('/delete-item/{name}', [AdminController::class, 'deleteProductByName']);
