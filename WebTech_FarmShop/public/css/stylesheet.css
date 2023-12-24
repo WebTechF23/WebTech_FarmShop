@@ -43,6 +43,7 @@ header {
     align-items: center;
     padding: 5px 10%;
     background-color: var(--main-color);
+    z-index: 2;
 }
 
 .nav_links {
@@ -194,17 +195,13 @@ li, a {
 
 .btn {
     margin-top: 30px;
-    color: #000000;
-    font-size: 20px;
-    width: 150px;
-    height: 40px;
-    border-radius: 20px;
-    background-color: white;
-    /*border-bottom: 2px;*/
-    /*border-bottom-color: #1a202c;*/
-    /*border-top: 2px;*/
-    /*border-top-color: #1a202c;*/
-
+    font-size: 16px;
+    width: 120px;
+    height: 32px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    border-style: solid;
+    border-color: #ffffff;
 
 }
 

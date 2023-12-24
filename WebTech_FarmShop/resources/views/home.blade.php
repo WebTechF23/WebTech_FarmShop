@@ -6,8 +6,8 @@
     <title>About page</title>
 @endsection
 
-@section('header')
-@endsection
+@section('header') @endsection
+
 
 @section('main')
     <div class="container">
@@ -37,15 +37,15 @@
             <div class="row">
                 <div class="col-xs-12 col-md-12">
                     <div class="text-boxContant">
-                        <h3 style="color : white">
-                            Phone number : 123456789 <br>
-                            <img class="logo" src="{{asset('images/FarmShop-logos_white.png')}}" alt="logo" style="float: right" >
+                        <h4 style="color : white">
+                            Phone number : 88888888 <br>
+                            <img class="logo" src="{{asset('images/FarmShop-logos_white.png')}}" alt="logo" style="float: right">
 
-                            Email :        at@at.com <br>
-                            Adress : Placeholderroad nr 15a <br>
-                            CVR : 671327813
+                            Email:       farmerjohndoe@helsingefarm.eco <br>
+                            Address : Helsingevej 38 <br>
+                            CVR : 69420691
 
-                        </h3>
+                        </h4>
 
                     </div>
                 </div>
