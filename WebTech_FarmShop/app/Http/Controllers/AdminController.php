@@ -123,7 +123,12 @@ class AdminController extends Controller
     {
 
         $product = Product::findOrFail($id);
-        $product->update($request);
+        $product->name = $request->input('name');
+        $product->unit_price = $request->input('price');
+        $product->description = $request->input('description');
+        $product->save();
+
+//        $product->update($request);
 
         return redirect()->back()->with('message', 'Product updated');
     }
