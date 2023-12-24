@@ -7,6 +7,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 @endsection
 
+{{--Delete this please--}}
 
 @section('header')
     <h1>Basket</h1>
@@ -16,9 +17,9 @@
 @section('main')
     <div class="basket-main">
         <h1>Reserve your products here!</h1>
-{{--        <button id="updateBasketButton" onclick="updateBasket()">--}}
-{{--            Fetch Basket--}}
-{{--        </button>--}}
+        <button id="updateBasketButton" class="updateBasketButton btn btn-primary" onclick="updateBasket()">
+            Fetch Basket
+        </button>
 
         <br>
         <form id="basket-form" method="POST" action="{{url('BasketController/finalizePurchase')}}">

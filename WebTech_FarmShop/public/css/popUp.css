@@ -1,0 +1,12 @@
+.container {
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    text-align: center;
+    width: 350px;
+    height: 250px;
+    background-color: var(--mainbackground-color);
+    border-radius: 20px;
+    padding: 5px 10px;
+}

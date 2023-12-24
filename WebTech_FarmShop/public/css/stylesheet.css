@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans:ital,wght@0,300;1,400&family=Roboto+Mono:wght@100&display=swap');
 
 :root {
-    --main-color: #466730; /* Temporary */
-    --mainbackground-color: #4f8150; /* Temporary */
+    --main-color: #417544;
+    --mainbackground-color: #4f8150;
+    --special-container-color: #417544;
 }
 
 body {
@@ -122,6 +123,12 @@ textarea {
     width: 200px;
 }
 
+#product-title {
+    margin-bottom: 10px;
+
+}
+
+
 .basket-main {
     display: flex;
     margin: 30px;
@@ -133,17 +140,24 @@ textarea {
 
 
 #basket-form * {
-    margin: 8px;
+    margin: 6px;
     padding: 2px;
 
 }
+
+#updateBasketButton {
+    margin-left: 12px;
+
+}
+
+
 
 #basket-form {
     width: 300px;
     border-style: solid;
     border-radius: 20px;
     border-color: var(--main-color);
-
+    background-color: var(--special-container-color);
 }
 
 
@@ -172,18 +186,7 @@ li, a {
     padding: 30px;
 }
 
-.container {
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    position: absolute;
-    text-align: center;
-    width: 350px;
-    height: 250px;
-    background-color: var(--mainbackground-color);
-    border-radius: 20px;
-    padding: 5px 10px;
-}
+
 
 .container h1 {
     padding: 15px 0;
@@ -191,7 +194,7 @@ li, a {
 
 .btn {
     margin-top: 30px;
-    color: #64814f;
+    color: #000000;
     font-size: 20px;
     width: 150px;
     height: 40px;
@@ -211,7 +214,7 @@ li, a {
     transform: translate(-50%,-50%);
     position: fixed;
     text-align: center;
-    background-color: #64814f;
+    background-color: var(--special-container-color);
     padding: 50px;
     border-radius: 20px;
 
@@ -228,7 +231,7 @@ li, a {
 }
 
 .user_container h1,p {
-    color: white;
+    /*color: #ffffff;*/
     padding-bottom: 10px;
     padding-top: 10px;
 }
@@ -236,4 +239,7 @@ li, a {
     text-decoration: underline;
 }
 
+.footer_line p {
+    color: white;
+}
 

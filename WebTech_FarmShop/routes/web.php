@@ -41,7 +41,9 @@ Route::get('/admin', [AdminController::class,'getAdminPage'])->name("admin");
 
 Route::post('/BasketController/finalizePurchase',[BasketController::class,'finalizePurchase'])->name('confirmBuy');
 
-/*Route::get('/userpage', function () {
+Route::delete('/admin/{id}', 'AdminController@destroy')->name('user.deleteUser');
+
+Route::get('/userpage', function () {
     return view('userpage');
 })->name("userpage");
 */
@@ -62,7 +64,7 @@ Route::get('/registerPage', function (){
 
 Route::post('RegisterController/register',[RegisterController::class,'register'] )->name('register');
 
-
+Route::post('AdminController/createProduct',[AdminController::class,'createProduct'])->name('createProduct');
 Route::get('/basket', function () {
     return view('basket');
 })->name("basket");
@@ -91,3 +93,7 @@ Route::group(['middleware' => 'admin'], function (){
 Route::get('/Stock/{id}', 'ItemController@getItem')->name('get.item');
 
 Route::put('/update-stock/{id}','BasketController@updateQuantity');
+
+Route::post('/products/{id}', [AdminController::class, 'updateProduct'])->name('products.updateProduct');
+
+Route::delete('/delete-item/{name}', [AdminController::class, 'deleteProductByName']);

@@ -1,9 +1,9 @@
 console.log("BASKET BUY YEE");
 
 // Updates the page when you enter (no need to fetch basket)
-document.addEventListener("DOMContentLoaded", function () {
-    updateBasket();
-});
+// document.addEventListener("DOMContentLoaded", function () {
+//     updateBasket();
+// });
 
 
 function updateBasket() {
@@ -19,7 +19,7 @@ function updateBasket() {
 
 
     // h3 Header creation
-    let existingHeader = basketContainer.querySelector('h3');
+    let existingHeader = basketContainer.querySelector('h2');
 
     // Checks, and creates header
     if (!existingHeader) {
