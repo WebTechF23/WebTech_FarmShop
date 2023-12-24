@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
 @extends('ViewTemplate')
 
 @section('script')
@@ -10,23 +11,7 @@
 @endsection
 
 @section('main')
-    <div>
-        <h1>Orders</h1>
-        {{--Window for showing all orders in the database--}}
-        <div class="edit-main">
-            @foreach($data[0] as $item)
-                @include("components.changeProduct",
-                ['orderDate'=>$item->date,'boughtAmount'=>$item->quantityBought,
-                'priceTotal'=>$item->totalPrice,'createdAt'=>$item->created_at,
-                'updatedAt'=>$item->updated_at, 'OrderID'=>$item->id,])
-                @foreach($item->product as $item1)
-                    <p>{{$item1}}</p>
-                    @include("components.showProduct",['productName'=>$item1->name,'productID'=>$item1->id,'productPrice'=>$item1->price,'productDescription'=>$item1->description])
 
-                @endforeach
-            @endforeach
-        </div>
-    </div>
 
     <div>
         {{--Window for showing all users in the system--}}
@@ -45,6 +30,37 @@
             {{--Window to add product--}}
             <h1>Create product</h1>
                 @include("components.createProduct")
+        </div>
+    </div>
+    <div>
+        <div style="padding-left: 15px">
+            <h1>Delete product</h1>
+            @include('components.deleteProduct')
+        </div>
+    </div>
+    <div>
+        <div style="padding-left: 15px">
+            <h1>Change product</h1>
+            @foreach($data[2] as $item)
+            @include('components.updateProduct')
+            @endforeach
+        </div>
+    </div>
+    <div style="padding-left: 15px">
+        <h1>Orders</h1>
+        {{--Window for showing all orders in the database--}}
+        <div class="edit-main">
+            @foreach($data[0] as $item)
+                @include("components.changeProduct",
+                ['orderDate'=>$item->date,'boughtAmount'=>$item->quantityBought,
+                'priceTotal'=>$item->totalPrice,'createdAt'=>$item->created_at,
+                'updatedAt'=>$item->updated_at, 'OrderID'=>$item->id,])
+                @foreach($item->product as $item1)
+                    <p>{{$item1}}</p>
+                    @include("components.showProduct",['productName'=>$item1->name,'productID'=>$item1->id,'productPrice'=>$item1->price,'productDescription'=>$item1->description])
+
+                @endforeach
+            @endforeach
         </div>
     </div>
 @endsection

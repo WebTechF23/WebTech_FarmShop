@@ -33,6 +33,8 @@ class AdminController extends Controller
         return view('admin', ['data'=>[$orders,$users,$products]]);
     }
 
+
+
     public function updateStock($quantity, $value)
     {
 
@@ -47,18 +49,24 @@ class AdminController extends Controller
         //save it
         $stock->save();
         //get new stock id
-        $stockID = $stock->id;
+        $stockID = $stock->id; //think this works
 
         $picture = new Picture();
+        //spoofing fileName and fileExtension as i couldnt get the picture chooser to work
+        $picture->fileName = "placeholder";
+        $picture->fileExtension ="png";
+
         $picture->save();
 
         $pictureID = $picture->id;
 
         $product = new Product();
         $product->name = $request->input('name');
-        $product->price = $request->input('price');
+        $product->unit_price = $request->input('price');
         $product->picture_id = $pictureID;
         $product->stock_id = $stockID; //this should hopefully just assign new stock id to product, same with picture id
+        $product->dateAdded = "1/1/2000"; //Either remove this element from database, or make it auto.
+        $product->description = $request->input('description');
         $product->save();
 
         return redirect($url);
@@ -94,8 +102,7 @@ class AdminController extends Controller
         $order->quantityBought = $request->input('quantityBought');
         $order->totalPrice = $request->input('totalPrice');
         $order->user_id = $request->input('user_id'); //for future change to drop down menu or something to search for names so admin doesnt have to cross reference IDs
-        $order->created_at = $request->input('created_at'); //no clue if this is automatic or not, come back to it
-        $order->updated_at = $request->input('updated_at');//same as created_at
+
         //save new order
         $order->save();
 
@@ -103,6 +110,28 @@ class AdminController extends Controller
         //need to check if $url is right, prob not
     }
 
+    public function deleteProductByName($name)
+    {
+        $item = Product::findOrFail($name);
+        $item->delete();
+
+        return redirect()->back()->with('message', 'Product deleted successfully.');
+    }
+
+
+    public function updateProduct(Request $request, $id)
+    {
+
+        $product = Product::findOrFail($id);
+        $product->name = $request->input('name');
+        $product->unit_price = $request->input('price');
+        $product->description = $request->input('description');
+        $product->save();
+
+//        $product->update($request);
+
+        return redirect()->back()->with('message', 'Product updated');
+    }
 
 
 }
