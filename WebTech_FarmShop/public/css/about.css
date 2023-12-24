@@ -1,41 +1,37 @@
-* {
-    z-index: 1;
-}
-
 
     .grid-picture{
         background-size: cover;
         object-fit: cover;
         height: 300px;
         align-items: center;
-        border-radius: 20px;
+        border: 3px white solid;
+        border-radius: 10px;
         width: 300px;
         transition: transform .2s;
 
     }
 
     .grid-picture:hover{
-        transform: scale(1.02);
+        transform: scale(1.05);
     }
 
 
     .text-box {
-        font-size: 1.5vw;
-        padding: 16px;
-        color: #dedede;
+        border: 3px solid white;
+        border-radius: 5px;
+        font-size: 1.15vw;
+        padding: 3px;
         text-align: justify;
-        background-color: var(--special-container-color);
-        height: 38%;
-        width: 80%;
-        border-radius: 20px;
+        height: 300px;
         transition: transform .2s;
         color: white;
 
     }
     .text-boxContant {
+        border: 3px solid white;
         border-radius: 5px;
         font-size: 1.15vw;
-        padding: 12px;
+        padding: 3px;
         text-align: justify;
         height: 150px;
         transition: transform .2s;
@@ -45,12 +41,12 @@
     }
 
     .text-box:hover{
-        transform: scale(1.02);
+        transform: scale(1.05);
 
     }
 
     .text-boxContant:hover{
-        transform: scale(1.02);
+        transform: scale(1.05);
     }
 
     .container{
