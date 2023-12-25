@@ -9,7 +9,7 @@
             {{--            <li><a href="{{route('logOut')}}">Logout</a></li>--}}
             @if(Auth::check())
                 {{--user is logged in--}}
-                <li><a href="{{route('userpage')}}">User</a></li>
+                <li><a href="{{route('userpage',['id'=>Auth::user()->id])}}">User</a></li>
                 <li><a href="{{route('buy')}}">Buy</a></li>
                 <li><a href="{{route('basket')}}">Basket</a></li>
                 <li><a href="{{route('logOut')}}">Logout</a></li>
@@ -19,7 +19,7 @@
                 @endif
             @else()
                 {{--is not logged in--}}
-                <li><a href="{{route('loginPage')}}">Login</a></li>
+                <li><a href="{{route('login')}}">Login</a></li>
             @endif
         </ul>
     </nav>

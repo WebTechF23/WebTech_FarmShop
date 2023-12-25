@@ -11,6 +11,12 @@ class Order extends Model
 {
     use HasFactory;
 
+
+    protected $fillable = [
+        'date',
+        'user_id',
+    ];
+
     public function users(){
         return $this->belongsTo(User::class,'user_id');
     }
@@ -19,4 +25,8 @@ class Order extends Model
     {
         return $this->belongsToMany(Product::class,'order_products');
     }
+
+
+
+
 }
