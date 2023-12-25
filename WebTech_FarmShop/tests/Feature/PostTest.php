@@ -13,18 +13,18 @@ class PostTest extends TestCase
     public function testPostRequest(): void
     {
         // Replace 'your_route' with the actual route you want to test
-        $response = $this->post(route('register'), [
-            'id' => '36',
-            'name' => 'mads', // Replace with your actual request data
-            'email' => 'test1234@test.dk'
+        $response = $this->post(route('login'), [
+            'email' => 'test@test',
+            'password' => 'kage'
 
             // Add more data if your request expects additional parameters
         ]);
 
-        $response->assertStatus(201); // Change to the expected HTTP status code
-        // Add more assertions based on your specific test case
+        $response->assertStatus(302);
+        // HTTPS CODE 302 means the logged-in user gets redirected to a new page after login
 
-        // Example: Assert that the response JSON contains a specific key
-        $response->assertJson(['name' => 'mads']);
+        $response->assertRedirect(route('home'));
+
+
     }
 }

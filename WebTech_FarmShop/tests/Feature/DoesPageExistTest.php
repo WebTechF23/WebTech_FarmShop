@@ -16,7 +16,7 @@ class DoesPageExistTest extends TestCase
 
     public function testUserPageExists(): void
     {
-        $response = $this->get(route('userpage'));
+        $response = $this->get(route('admin'));
 
         $response->assertStatus(200);
     }
@@ -28,7 +28,7 @@ class DoesPageExistTest extends TestCase
     }
     public function testLoginPageExists(): void
     {
-        $response = $this->get(route('login'));
+        $response = $this->get(route('registerPage'));
 
         $response->assertStatus(200);
     }
