@@ -56,7 +56,7 @@
                 'priceTotal'=>$item->totalPrice,'createdAt'=>$item->created_at,
                 'updatedAt'=>$item->updated_at, 'OrderID'=>$item->id,])
                 @foreach($item->product as $item1)
-                    <p>{{$item1}}</p>
+{{--                    <p>{{$item1}}</p>--}}
                     @include("components.showProduct",['productName'=>$item1->name,'productID'=>$item1->id,'productPrice'=>$item1->price,'productDescription'=>$item1->description])
 
                 @endforeach
