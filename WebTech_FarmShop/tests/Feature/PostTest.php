@@ -2,22 +2,32 @@
 
 namespace Tests\Feature;
 
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class PostTest extends TestCase
 {
-    use RefreshDatabase; // Use this trait to reset the database after each test
+
+    use RefreshDatabase;
 
     public function testPostRequest(): void
     {
-        // Replace 'your_route' with the actual route you want to test
-        $response = $this->post(route('login'), [
-            'email' => 'test@test',
-            'password' => 'kage'
+        User::create([
+            'name' => 'MadsTest',
+            'email' => 'mage@gigantica.com',
+            'phoneNumber' => '20202132',
+            'password' => bcrypt('mage'),
+            'isAdmin' => true,
+            'created_at' => now(),
+            'updated_at' =>now(),
+        ]);
 
-            // Add more data if your request expects additional parameters
+
+        $response = $this->post(route('loginAuth'), [
+            'email' => 'mage@gigantica.com',
+            'password' => 'mage'
+
         ]);
 
         $response->assertStatus(302);

@@ -10,7 +10,7 @@ class LoginController extends Controller
 {
 
     public function authenticate(Request $request): RedirectResponse
-    {error_log('hello');
+    {error_log('The page exists!');
     $credentials = $request->validate ([
         'email'=> ['required', 'email'],
         'password' => ['required']

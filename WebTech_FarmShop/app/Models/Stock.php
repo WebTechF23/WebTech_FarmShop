@@ -10,10 +10,7 @@ class Stock extends Model
     use HasFactory;
 
 
-    protected $fillable = [
-        'quantity',
-        // other fillable fields...
-    ];
+    protected $fillable = ['quantity', 'created_at', 'updated_at'];
 
 
 }

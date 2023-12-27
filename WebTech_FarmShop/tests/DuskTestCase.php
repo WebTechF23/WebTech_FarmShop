@@ -34,17 +34,23 @@ abstract class DuskTestCase extends BaseTestCase
         ])->unless($this->hasHeadlessDisabled(), function (Collection $items) {
             return $items->merge([
                 '--disable-gpu',
-                '--headless=new',
+                '--headless',
             ]);
         })->all());
 
+        $capabilities = DesiredCapabilities::chrome();
+        $capabilities->setCapability(ChromeOptions::CAPABILITY, $options->toArray());
+
         return RemoteWebDriver::create(
-            $_ENV['DUSK_DRIVER_URL'] ?? 'http://127.0.0.1:8000',
-            DesiredCapabilities::chrome()->setCapability(
-                ChromeOptions::CAPABILITY, $options
-            )
+            $_ENV['/Applications'] ?? 'http://localhost:9515',
+            $capabilities
         );
     }
+
+
+
+
+
 
     /**
      * Determine whether the Dusk command has disabled headless mode.
